@@ -239,13 +239,13 @@ margin-left: 0.1rem;}
 .welfare-hj {margin-top: 0.12rem; padding: 0.16rem;}
 
 /*基金板块*/
-.cont-th {height:0.7rem; line-height: 0.7rem; font-size: 0.24rem; background: #d8d8d8 url("../images/dian.png") left 0.26rem center no-repeat; overflow: hidden;}
+.cont-th {height:0.7rem; line-height: 0.7rem; font-size: 0.20rem; background: #d8d8d8 url("../images/dian.png") left 0.26rem center no-repeat; overflow: hidden;}
 .label-tc {margin-left: 0.52rem;}
 .col-xs-6-r {border-right: 1px solid #dadada; padding: 0; display: inline-block;}
 .col-xs-6-r:last-child {border-right:none;}
 .bottom-jj {text-align: center; background: #fff; padding: 0.2rem 0;}
 .welfare-jj { padding: 0 0.16rem 0.16rem 0.16rem;}
-.title-jj {font-size: 0.24rem; }
+.title-jj {font-size: 0.18rem; }
 .head-b {font-size: 0.24rem; color: #fff; position: absolute; left: 0.14rem; bottom:0.16rem; }
 .news-ulj {  margin-top: 0;  padding-top: 0;}
 .news-ulj li {border-bottom: 1px solid #dadada; margin: 0 0.16rem ; padding-bottom: 0.16rem;  background: #fff;}
@@ -276,6 +276,8 @@ margin-left: 0.1rem;}
 .null-top li:last-child {border-bottom: none;}
 .wangd-list {padding-top: 0;}
 .news-ul {background: #fff;}
+.news-img-ttss5{float:left;width:280px;font-size:0.12rem; position:absolute; left:0; bottom:0; padding:5px 10px;  color:#fff;     background-color: rgba(0,0,0,.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#000000, endcolorstr=#000000);    overflow: hidden; /*自动隐藏文字*/text-overflow: ellipsis;/*文字隐藏后添加省略号*/ white-space: nowrap;/*强制不换行*/}
 
 /*新闻列表页面*/
 .pager { width: 100%; padding-bottom: 0.16rem;}

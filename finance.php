@@ -64,7 +64,7 @@ $gongsi  = returnClassinfo(13, 6);
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
                     <?=$isgood[$i]['title']?></div>
-                    <div class="pull-right"><span><?=$i+1?>/</span>6</div>
+                    <div class="pull-right"><span><?=$i?>/</span>6</div>
                 </div>
             </div>
         </div>
@@ -113,14 +113,15 @@ $gongsi  = returnClassinfo(13, 6);
     <ul class="news-ul">
         <?php  
         if($neican) {
-            for($nei=0;$nei<4;$nei++) {
+            for($nei=0;$nei<5;$nei++) {
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img src="images/01.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img style="width:140px;height:110px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><?=$neican[$nei]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($neican[$nei]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($neican[$nei]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$neican[$nei]['plnum']?></div>
@@ -134,9 +135,11 @@ $gongsi  = returnClassinfo(13, 6);
 <div class="clearfix welfare-1 welfare-cai">
     <div class="lianghui"><a href="newsdetail.php?mid=<?=$neican[5]['id']?>"><?=$neican[5]['title']?></a></div>
     <div class="show-col show-icai">
-        <img src="images/13.png" alt="">
+    <a href="newsdetail.php?mid=<?=$neican[5]['id']?>">
+        <img style="width:608px;height:271px;" src="<?=($neican[5]['titlepic'])?$neican[5]['titlepic']:'images/13.png'?>">
+    </a>
         <div class="head-r">独家</div>
-        <div class="welfare-bottom"><?=$neican[5]['title']?></div>
+        <div class="news-img-ttss"><?=$neican[5]['title']?></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left industry industry-l20"><?=getClassname($neican[5]['classid'])?></div>
@@ -152,14 +155,15 @@ $gongsi  = returnClassinfo(13, 6);
     <ul class="news-ul">
         <?php  
         if($ticai) {
-            for($ti=0;$ti<4;$ti++) {
+            for($ti=0;$ti<5;$ti++) {
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img style="width:140px;height:110px;" src="<?=($ticai[$ti]['titlepic'])?$ticai[$ti]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><?=$ticai[$ti]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($ticai[$ti]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($ticai[$ti]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$ticai[$ti]['plnum']?></div>
@@ -168,59 +172,40 @@ $gongsi  = returnClassinfo(13, 6);
         </li>
         <?php }} ?>
     </ul>
-    <a href="newslist.php?mid=49" class="news-more more-b"><span>查看更多</span></a>
+    <a href="newslist.php?mid=10" class="news-more more-b"><span>查看更多</span></a>
 </div>
-<!--主力-->
+<div class="clearfix welfare-1 welfare-cai">
+    <div class="lianghui"><a href="newsdetail.php?mid=<?=$ticai[5]['id']?>"><?=$ticai[5]['title']?></a></div>
+    <div class="show-col show-icai">
+    <a href="newsdetail.php?mid=<?=$ticai[5]['id']?>">
+        <img style="width:608px;height:271px;" src="<?=($ticai[5]['titlepic'])?$ticai[5]['titlepic']:'images/13.png'?>">
+    </a>
+        <div class="head-r">独家</div>
+        <div class="news-img-ttss"><?=$ticai[5]['title']?></div>
+    </div>
+    <div class="clearfix left-b1">
+        <div class="pull-left industry industry-l20"><?=getClassname($ticai[5]['classid'])?></div>
+        <div class="pull-left house"><?=getRelease($ticai[5]['newstime'])?></div>
+    </div>
+</div>
+<!--宏 观-->
 <div class="news-list">
-    <ul class="news-ul gupiao-ul">
-        <li>
-              <div class="mystyle clearfix welfare-1">
-                <div class="lianghui"><a href="newsdetail.php?mid=<?=$ticai[4]['id']?>"><?=$ticai[4]['title']?></a></div>
-                <div class="show-col">
-                    <div class="col-xs-4 col-xs-4-f">
-                        <div class="head-r">独家</div>
-                        <a href="newsdetail.php?mid=<?=$ticai[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
-                </div>
-                <div class="clearfix left-b1">
-                        <div class="pull-left house-gp"><?=getRelease($ticai[4]['newstime'])?></div>
-                        <div class="pull-right news-icon"><?=$ticai[4]['plnum']?></div>
-                </div>
-            </div>
-        </li>
-        <li>
-                 <div class="clearfix">
-                    <div class="pull-left news-img">
-                    <a href="newsdetail.php?mid=<?=$ticai[7]['id']?>"><img src="images/01.jpg"></a></div>
-                    <div class="news-list-txt">
-                        <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[7]['id']?>"><?=$ticai[7]['title']?></a></div>
-                        <div class="clearfix date">
-                            <div class="pull-left guoji"><?=getClassname($ticai[7]['classid'])?></div>
-                            <div class="pull-left date-number"><?=getRelease($ticai[7]['newstime'])?></div>
-                        </div>
-                        <div class="news-icon "><?=$ticai[7]['plnum']?></div>
-                    </div>
-                </div>
-        </li>
-    </ul>
     <div class="clearfix">
-        <div class="pull-left list-tt">主力</div>
+        <div class="pull-left list-tt">宏观</div>
     </div>
     <div class="lind"><div class="lind-b"></div></div>
     <ul class="news-ul">
         <?php  
         if($zhuli) {
-            for($zhu=0;$zhu<4;$zhu++) {
+            for($zhu=0;$zhu<5;$zhu++) {
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img style="width:140px;height:110px;" src="<?=($zhuli[$zhu]['titlepic'])?$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><?=$zhuli[$zhu]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($zhuli[$zhu]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($zhuli[$zhu]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$zhuli[$zhu]['plnum']?></div>
@@ -229,59 +214,40 @@ $gongsi  = returnClassinfo(13, 6);
         </li>
         <?php }} ?>
     </ul>
-    <a href="newslist.php?mid=50" class="news-more more-b"><span>查看更多</span></a>
+    <a href="newslist.php?mid=11" class="news-more more-b"><span>查看更多</span></a>
 </div>
-<!--名家-->
+<div class="clearfix welfare-1 welfare-cai">
+    <div class="lianghui"><a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>"><?=$zhuli[5]['title']?></a></div>
+    <div class="show-col show-icai">
+    <a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>">
+        <img style="width:608px;height:271px;" src="<?=($zhuli[5]['titlepic'])?$zhuli[5]['titlepic']:'images/13.png'?>">
+    </a>
+        <div class="head-r">独家</div>
+        <div class="news-img-ttss"><?=$zhuli[5]['title']?></div>
+    </div>
+    <div class="clearfix left-b1">
+        <div class="pull-left industry industry-l20"><?=getClassname($zhuli[5]['classid'])?></div>
+        <div class="pull-left house"><?=getRelease($zhuli[5]['newstime'])?></div>
+    </div>
+</div>
+<!--公司-->
 <div class="news-list">
-    <ul class="news-ul gupiao-ul">
-        <li>
-            <div class="mystyle clearfix welfare-1">
-                <div class="lianghui"><a href="newsdetail.php?mid=<?=$zhuli[4]['id']?>"><?=$zhuli[4]['title']?></a></div>
-                <div class="show-col">
-                    <div class="col-xs-4 col-xs-4-f">
-                        <div class="head-r">独家</div>
-                        <a href="newsdetail.php?mid=<?=$zhuli[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
-                </div>
-                <div class="clearfix left-b1">
-                        <div class="pull-left house-gp"><?=getRelease($zhuli[4]['newstime'])?></div>
-                        <div class="pull-right news-icon"><?=$zhuli[4]['plnum']?></div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="clearfix">
-                    <div class="pull-left news-img">
-                    <a href="newsdetail.php?mid=<?=$zhuli[7]['id']?>"><img src="images/01.jpg"></a></div>
-                    <div class="news-list-txt">
-                        <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[7]['id']?>"><?=$zhuli[7]['title']?></a></div>
-                        <div class="clearfix date">
-                            <div class="pull-left guoji"><?=getClassname($zhuli[7]['classid'])?></div>
-                            <div class="pull-left date-number"><?=getRelease($zhuli[7]['newstime'])?></div>
-                        </div>
-                        <div class="news-icon "><?=$zhuli[7]['plnum']?></div>
-                    </div>
-            </div>
-        </li>
-    </ul>
     <div class="clearfix">
-        <div class="pull-left list-tt">名家</div>
+        <div class="pull-left list-tt">公司</div>
     </div>
     <div class="lind"><div class="lind-b"></div></div>
     <ul class="news-ul">
         <?php  
         if($mingjia) {
-            for($ming=0;$ming<4;$ming++) {
+            for($ming=0;$ming<5;$ming++) {
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><img style="width:140px;height:110px;" src="<?=($mingjia[$ming]['titlepic'])?$mingjia[$ming]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><?=$mingjia[$ming]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($mingjia[$ming]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($mingjia[$ming]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$mingjia[$ming]['plnum']?></div>
@@ -290,59 +256,40 @@ $gongsi  = returnClassinfo(13, 6);
         </li>
         <?php }} ?>
     </ul>
-    <a href="newslist.php?mid=51" class="news-more more-b"><span>查看更多</span></a>
+    <a href="newslist.php?mid=12" class="news-more more-b"><span>查看更多</span></a>
 </div>
-<!--公司-->
+<div class="clearfix welfare-1 welfare-cai">
+    <div class="lianghui"><a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>"><?=$mingjia[5]['title']?></a></div>
+    <div class="show-col show-icai">
+    <a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>">
+        <img style="width:608px;height:271px;" src="<?=($mingjia[5]['titlepic'])?$mingjia[5]['titlepic']:'images/13.png'?>">
+    </a>
+        <div class="head-r">独家</div>
+        <div class="news-img-ttss"><?=$mingjia[5]['title']?></div>
+    </div>
+    <div class="clearfix left-b1">
+        <div class="pull-left industry industry-l20"><?=getClassname($mingjia[5]['classid'])?></div>
+        <div class="pull-left house"><?=getRelease($mingjia[5]['newstime'])?></div>
+    </div>
+</div>
+<!--创投-->
 <div class="news-list">
-    <ul class="news-ul gupiao-ul">
-        <li>
-            <div class="mystyle clearfix welfare-1">
-                <div class="lianghui"><a href="newsdetail.php?mid=<?=$mingjia[4]['id']?>"><?=$mingjia[4]['title']?></a></div>
-                <div class="show-col">
-                    <div class="col-xs-4 col-xs-4-f">
-                        <div class="head-r">独家</div>
-                        <a href="newsdetail.php?mid=<?=$mingjia[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$mingjia[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
-                </div>
-                <div class="clearfix left-b1">
-                        <div class="pull-left house-gp"><?=getRelease($mingjia[4]['newstime'])?></div>
-                        <div class="pull-right news-icon"><?=$mingjia[4]['plnum']?></div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="clearfix">
-                    <div class="pull-left news-img">
-                    <a href="newsdetail.php?mid=<?=$mingjia[7]['id']?>"><img src="images/01.jpg"></a></div>
-                    <div class="news-list-txt">
-                        <div class="news-tt"><a href="newsdetail.php?mid=<?=$mingjia[7]['id']?>"><?=$mingjia[7]['title']?></a></div>
-                        <div class="clearfix date">
-                            <div class="pull-left guoji"><?=getClassname($mingjia[7]['classid'])?></div>
-                            <div class="pull-left date-number"><?=getRelease($mingjia[7]['newstime'])?></div>
-                        </div>
-                        <div class="news-icon "><?=$mingjia[7]['plnum']?></div>
-                    </div>
-            </div>
-        </li>
-    </ul>
     <div class="clearfix">
-        <div class="pull-left list-tt">公司</div>
+        <div class="pull-left list-tt">创投</div>
     </div>
     <div class="lind"><div class="lind-b"></div></div>
     <ul class="news-ul">
         <?php  
         if($gongsi) {
-            for($gong=0;$gong<4;$gong++) {
+            for($gong=0;$gong<5;$gong++) {
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><img style="width:140px;height:110px;" src="<?=($gongsi[$gong]['titlepic'])?$gongsi[$gong]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><?=$gongsi[$gong]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($gongsi[$gong]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($gongsi[$gong]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$gongsi[$gong]['plnum']?></div>
@@ -351,46 +298,23 @@ $gongsi  = returnClassinfo(13, 6);
         </li>
         <?php }} ?>
     </ul>
-    <a href="newslist.php?mid=52" class="news-more more-b"><span>查看更多</span></a>
+    <a href="newslist.php?mid=13" class="news-more more-b"><span>查看更多</span></a>
+</div>
+<div class="clearfix welfare-1 welfare-cai">
+    <div class="lianghui"><a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>"><?=$gongsi[5]['title']?></a></div>
+    <div class="show-col show-icai">
+    <a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>">
+        <img style="width:608px;height:271px;" src="<?=($gongsi[5]['titlepic'])?$gongsi[5]['titlepic']:'images/13.png'?>">
+    </a>
+        <div class="head-r">独家</div>
+        <div class="news-img-ttss"><?=$gongsi[5]['title']?></div>
+    </div>
+    <div class="clearfix left-b1">
+        <div class="pull-left industry industry-l20"><?=getClassname($gongsi[5]['classid'])?></div>
+        <div class="pull-left house"><?=getRelease($gongsi[5]['newstime'])?></div>
+    </div>
 </div>
 <!---->
-<div class="news-list">
-    <ul class="news-ul gupiao-ul">
-        <li>
-            <div class="mystyle clearfix welfare-1">
-                <div class="lianghui"><a href="newsdetail.php?mid=<?=$gongsi[4]['id']?>"><?=$gongsi[4]['title']?></a></div>
-                <div class="show-col">
-                    <div class="col-xs-4 col-xs-4-f">
-                        <div class="head-r">独家</div>
-                        <a href="newsdetail.php?mid=<?=$gongsi[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
-                    </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$gongsi[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
-                </div>
-                <div class="clearfix left-b1">
-                        <div class="pull-left house-gp"><?=getRelease($gongsi[4]['newstime'])?></div>
-                        <div class="pull-right news-icon"><?=$gongsi[4]['plnum']?></div>
-                </div>
-            </div>
-        </li>
-        <li>
-            <div class="clearfix">
-                    <div class="pull-left news-img">
-                    <a href="newsdetail.php?mid=<?=$gongsi[7]['id']?>"><img src="images/01.jpg"></a></div>
-                    <div class="news-list-txt">
-                        <div class="news-tt"><a href="newsdetail.php?mid=<?=$gongsi[7]['id']?>"><?=$gongsi[7]['title']?></a></div>
-                        <div class="clearfix date">
-                            <div class="pull-left guoji"><?=getClassname($gongsi[7]['classid'])?></div>
-                            <div class="pull-left date-number"><?=getRelease($gongsi[7]['newstime'])?></div>
-                        </div>
-                        <div class="news-icon "><?=$gongsi[7]['plnum']?></div>
-                    </div>
-            </div>
-        </li>
-    </ul>
-</div>
-
 
 <!--保险-->
 <?php include 'foot.php'; ?>

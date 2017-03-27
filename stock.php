@@ -3,7 +3,7 @@ $cur = 'stock';
 $titlename = '股票板块';
 include 'head.php';
 //一级推荐
-$isgood = getGood(3, 'isgood');
+$isgood = getGood(2, 'isgood');
 
 $nowtime = microtime(true);
 $info = file_get_contents("https://gupiao.baidu.com/api/rails/stockbasicbatch?from=pc&os_ver=1&cuid=xxx&vv=100&format=json&stock_code=us!DJI%2Cus.DJI%2Cus%40CCO%2ChkHSI%2Cus.IXIC%2Csz399001%2Csh000001&timestamp=".$nowtime."");
@@ -102,10 +102,11 @@ $gongsi  = returnClassinfo(52, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img src="images/01.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img style="width:140px;height:110px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><?=$neican[$nei]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($neican[$nei]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($neican[$nei]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$neican[$nei]['plnum']?></div>
@@ -126,10 +127,10 @@ $gongsi  = returnClassinfo(52, 8);
                     <div class="col-xs-4 col-xs-4-f">
                         <div class="head-r">独家</div>
                         <a href="newsdetail.php?mid=<?=$neican[5]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
+                        <img style="width:197px;height:123px;" src="<?=($neican[5]['titlepic'])?$neican[5]['titlepic']:'images/bao1.jpg'?>"></a>
                     </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[6]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[7]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[6]['titlepic'])?$neican[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[7]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[7]['titlepic'])?$neican[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
                 </div>
                 <div class="clearfix left-b1">
                         <div class="pull-left house-gp"><?=getRelease($neican[5]['newstime'])?></div>
@@ -163,10 +164,11 @@ $gongsi  = returnClassinfo(52, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img style="width:140px;height:110px;" src="<?=($ticai[$ti]['titlepic'])?$ticai[$ti]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><?=$ticai[$ti]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($ticai[$ti]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($ticai[$ti]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$ticai[$ti]['plnum']?></div>
@@ -187,10 +189,10 @@ $gongsi  = returnClassinfo(52, 8);
                     <div class="col-xs-4 col-xs-4-f">
                         <div class="head-r">独家</div>
                         <a href="newsdetail.php?mid=<?=$ticai[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
+                        <img style="width:197px;height:123px;" src="<?=($ticai[4]['titlepic'])?$ticai[4]['titlepic']:'images/bao1.jpg'?>"></a>
                     </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[5]['titlepic'])?$ticai[5]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[6]['titlepic'])?$ticai[6]['titlepic']:'images/bao3.jpg'?>"></a></div>
                 </div>
                 <div class="clearfix left-b1">
                         <div class="pull-left house-gp"><?=getRelease($ticai[4]['newstime'])?></div>
@@ -224,10 +226,11 @@ $gongsi  = returnClassinfo(52, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img style="width:140px;height:110px;" src="<?=($zhuli[$zhu]['titlepic'])?$zhuli[$zhu]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><?=$zhuli[$zhu]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($zhuli[$zhu]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($zhuli[$zhu]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$zhuli[$zhu]['plnum']?></div>
@@ -248,10 +251,10 @@ $gongsi  = returnClassinfo(52, 8);
                     <div class="col-xs-4 col-xs-4-f">
                         <div class="head-r">独家</div>
                         <a href="newsdetail.php?mid=<?=$zhuli[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
+                        <img style="width:197px;height:123px;" src="<?=($zhuli[4]['titlepic'])?$zhuli[4]['titlepic']:'images/bao1.jpg'?>"></a>
                     </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[5]['titlepic'])?$zhuli[5]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[6]['titlepic'])?$zhuli[6]['titlepic']:'images/bao3.jpg'?>"></a></div>
                 </div>
                 <div class="clearfix left-b1">
                         <div class="pull-left house-gp"><?=getRelease($zhuli[4]['newstime'])?></div>
@@ -285,10 +288,11 @@ $gongsi  = returnClassinfo(52, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><img style="width:140px;height:110px;" src="<?=($mingjia[$ming]['titlepic'])?$mingjia[$ming]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><?=$mingjia[$ming]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($mingjia[$ming]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($mingjia[$ming]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$mingjia[$ming]['plnum']?></div>
@@ -309,10 +313,10 @@ $gongsi  = returnClassinfo(52, 8);
                     <div class="col-xs-4 col-xs-4-f">
                         <div class="head-r">独家</div>
                         <a href="newsdetail.php?mid=<?=$mingjia[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
+                        <img style="width:197px;height:123px;" src="<?=($mingjia[4]['titlepic'])?$mingjia[4]['titlepic']:'images/bao1.jpg'?>"></a>
                     </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$mingjia[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($mingjia[5]['titlepic'])?$mingjia[5]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$mingjia[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($mingjia[6]['titlepic'])?$mingjia[6]['titlepic']:'images/bao3.jpg'?>"></a></div>
                 </div>
                 <div class="clearfix left-b1">
                         <div class="pull-left house-gp"><?=getRelease($mingjia[4]['newstime'])?></div>
@@ -346,10 +350,11 @@ $gongsi  = returnClassinfo(52, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><img src="images/08.jpg"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><img style="width:140px;height:110px;" src="<?=($gongsi[$gong]['titlepic'])?$gongsi[$gong]['titlepic']:'images/01.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><?=$gongsi[$gong]['title']?></a></div>
                     <div class="clearfix date">
+                        <div class="pull-left guoji"><?=getClassname($gongsi[$gong]['classid'])?></div>
                         <div class="pull-left date-number"><?=getRelease($gongsi[$gong]['newstime'])?></div>
                     </div>
                     <div class="news-icon"><?=$gongsi[$gong]['plnum']?></div>
@@ -370,10 +375,10 @@ $gongsi  = returnClassinfo(52, 8);
                     <div class="col-xs-4 col-xs-4-f">
                         <div class="head-r">独家</div>
                         <a href="newsdetail.php?mid=<?=$gongsi[4]['id']?>">
-                        <img src="images/bao1.jpg" alt=""></a>
+                        <img style="width:197px;height:123px;" src="<?=($gongsi[4]['titlepic'])?$gongsi[4]['titlepic']:'images/bao1.jpg'?>"></a>
                     </div>
-                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$gongsi[6]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                    <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($gongsi[5]['titlepic'])?$gongsi[5]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$gongsi[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($gongsi[6]['titlepic'])?$gongsi[6]['titlepic']:'images/bao3.jpg'?>"></a></div>
                 </div>
                 <div class="clearfix left-b1">
                         <div class="pull-left house-gp"><?=getRelease($gongsi[4]['newstime'])?></div>
