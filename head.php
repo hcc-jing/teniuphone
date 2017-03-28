@@ -18,6 +18,7 @@ require("../shareinfo/phonefunction.php");
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="/js/voteit.js"></script>
 	<script type="text/javascript">
     
     //html root的字体计算应该放在最前面，这样计算就不会有误差了/
@@ -47,7 +48,7 @@ require("../shareinfo/phonefunction.php");
                     <li class="back-no <?=($cur=='bank')?'find_nav_cur':'';?>"><a href="bank.php">银行</a></li>
                     <li class="back-no <?=($cur=='gold')?'find_nav_cur':'';?>"><a href="gold.php">黄金</a></li>
                     <li class="back-no <?=($cur=='insu')?'find_nav_cur':'';?>"><a href="insurance.php">保险</a></li>
-                    <li class="back-no <?=($cur=='mark')?'find_nav_cur':'';?>"><a href="mark.php">行情</a></li>
+                    <li class="back-no <?=($cur=='mark')?'find_nav_cur':'';?>"><a href="javascript:;">行情</a></li>
                     <li class="back-no <?=($cur=='lun')?'find_nav_cur':'';?>"><a href="javascript:;">论坛</a></li>
                 </ul>
             </div>
@@ -66,6 +67,6 @@ require("../shareinfo/phonefunction.php");
         <li><a href="bank.php">银行</a></li>
         <li><a href="gold.php">黄金</a></li>
         <li><a href="insurance.php">保险</a></li>
-        <li><a href="mark.php">行情</a></li>
+        <li><a href="javascript:;">行情</a></li>
         <li><a href="javascript:;">论坛</a></li>
     </ul>

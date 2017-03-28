@@ -9,6 +9,9 @@ require("../shareinfo/phonefunction.php");
 
 //接收提交的mid
 $mid = isset($_GET['mid']) ? $_GET['mid'] : '';
+if($mid == '') {
+    exit('No article');
+}
 //新闻信息
 $newinfo = getNewsDetail($mid);
 //点击率最高的文章
