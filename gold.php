@@ -16,8 +16,24 @@ $mingjia = returnClassinfo(40, 8);
 //宏观
 $gongsi = returnClassinfo(37, 8);
 
+?>
+<?php  
+
+//连续黄金
+$lianurl = "http://hq.sinajs.cn/?_=". time() ."/&list=AU0";
+$lunurl = "http://hq.sinajs.cn/?_=". time() ."/&list=hf_XAU";
+$hf_GCurl = "http://hq.sinajs.cn/?_=". time() ."/&list=hf_GC";
+
+$lian   = getGoldinfos($lianurl);
+$lundun = getGoldinfos($lunurl);
+$hf_GC  = getGoldinfos($hf_GCurl);
+
+$xia = $lian[8] - $lian[10];
+
+$percent = sprintf("%.2f",($xia/$lian[10])*100);
+$xia = sprintf("%.2f",$xia);
 // echo '<pre>';
-// print_r($ticai);exit;
+// print_r($lianurl);exit;
 ?>
 <!--二级菜单导航-->
 <div class="nav-down-list">
@@ -69,26 +85,26 @@ $gongsi = returnClassinfo(37, 8);
     <div class="clearfix text-center bottom-hj">
         <div class="col-xs-4 col-xs-4-r">
             <div class="cont-tt">COMEX黄金</div>
-            <div class="cont-tt2">1203.400 </div>
-            <div class="cont-tt3">
-                <span>0.301</span>
-                <span>+0.025%</span>
+            <div class="cont-tt<?=($hf_GC[1] > 0)?'1':'2'?>"><?=$hf_GC[2]?></div>
+            <div class="cont-tt<?=($hf_GC[1] > 0)?'4':'3'?>">
+                <span><?=sprintf("%.3f",$hf_GC[2]*$hf_GC[1]/100)?></span>
+                <span><?=sprintf("%.2f",$hf_GC[1])?>%</span>
             </div>
         </div>
         <div class="col-xs-4 col-xs-4-r">
             <div class="cont-tt">伦敦金</div>
-            <div class="cont-tt1">1203.730</div>
-            <div class="cont-tt4">
-                <span>-1.217</span>
-                <span>-0.101%</span>
+            <div class="cont-tt<?=($lundun[1] > 0)?'1':'2'?>"><?=$lundun[2]?></div>
+            <div class="cont-tt<?=($lundun[1] > 0)?'4':'3'?>">
+                <span><?=sprintf("%.3f",$lundun[2]*$lundun[1]/100)?></span>
+                <span><?=sprintf("%.2f",$lundun[1])?>%</span>
             </div>
         </div>
         <div class="col-xs-4 col-xs-4-r">
             <div class="cont-tt">黄金连续</div>
-            <div class="cont-tt2">272.800</div>
-            <div class="cont-tt3">
-                <span>0.55</span>
-                <span>+0.202%</span>
+            <div class="cont-tt<?=($xia > 0)?'1':'2'?>"><?=$lian[8]?></div>
+            <div class="cont-tt<?=($xia > 0)?'4':'3'?>">
+                <span><?=$xia?></span>
+                <span><?=$percent?>%</span>
             </div>
         </div>
     </div>
@@ -108,7 +124,7 @@ $gongsi = returnClassinfo(37, 8);
                 </div>
             </div>
             <a class="vote-1" href="javascript:;" onclick="voteit(601,1908,0);">投票</a>
-            <div class="progress-number result" id="val_601_1">51.5%</div>
+            <div class="progress-number result" id="val_601_1">51.56%</div>
         </div>
         <div class="goole-tc2">
             <span>看空</span>
@@ -119,7 +135,7 @@ $gongsi = returnClassinfo(37, 8);
                 </div>
             </div>
             <a class="vote-2" href="javascript:;" onclick="voteit(601,1909,1);">投票</a>
-            <div class="progress-number result" id="val_601_2">48.5%</div>
+            <div class="progress-number result" id="val_601_2">48.44%</div>
         </div>
     </div>
 </div>

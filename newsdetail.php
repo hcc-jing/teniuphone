@@ -20,8 +20,24 @@ $bestonclick = onclickBest($newinfo['classid']);
 $newslist    = getNewslist($newinfo['classid']);
 //相关阅读
 $relevant = getRelevant($newinfo['classid']);
+
+//热门跟帖
+$hotpl = hotpl($mid);
+
+//客户端ip
+$sayip=egetip();
+$address = GetIpLookup($sayip);
+//判断是否存在cookie
+if(!isset($_COOKIE['uname'])) {
+    $uname = getUsername($address);
+    setcookie('uname', $uname, time()+86400);
+}
+
+//获取点赞情况
+$dian = getDianzan($sayip);
+
 // echo '<pre>';
-// print_r(mb_substr($newslist[3]['title'], 0, 24 ,'utf-8'));exit;
+// print_r($dian);exit;
 
 ?>
 <!DOCTYPE html>
@@ -36,7 +52,8 @@ $relevant = getRelevant($newinfo['classid']);
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="stylesheet" href="css/reveal.css">
+    <script type="text/javascript" src="/phone/js/myfunction.js"></script>
     <script type="text/javascript">
 
         //html root的字体计算应该放在最前面，这样计算就不会有误差了/
@@ -49,6 +66,25 @@ $relevant = getRelevant($newinfo['classid']);
         })();
 
     </script>
+    <style>
+    h1 { font-size:32px; font-weight: bold; }
+    h2 { color: #1e3a9e; font-size: 25px; font-weight: bold;  }
+    .you { color: #1f3a87; font-size: 14px; }
+    .text { font-size: 14px; padding-left: 5px; padding-right: 5px; line-height: 20px}
+    .re a { color: #1f3a87; }
+    .name { color: #1f3a87; }
+    .name a { color: #1f3a87; text-decoration: underline;}
+    .retext { background-color: #f3f3f3; width: 100%; float: left; padding-top: 22px; padding-bottom: 22px; border-top: 1px solid #ccc; }
+    .retext textarea { width: 300px; height: 130px; float: left; margin-left: 60px; border-top-style: inset; border-top-width: 2px; border-left-style: inset; border-left-width: 2px; }
+    .hrLine{BORDER-BOTTOM: #807d76 1px dotted;}
+
+    .ecomment {margin:0;padding:0;}
+    .ecomment {margin-bottom:12px;overflow-x:hidden;overflow-y:hidden;padding-bottom:3px;padding-left:3px;padding-right:3px;padding-top:3px;background:#FFFFEE;padding:3px;border:solid 1px #999;}
+    .ecommentauthor {float:left; color:#F96; font-weight:bold;}
+    .ecommenttext {clear:left;margin:0;padding:0;}
+    </style>
+<script src="/e/data/js/ajax.js"></script>
+</head>
 <body>
 <div class="img-top"><img src="images/top.jpg"></div>
 <div class="logo"><img src="images/logo.jpg"></div>
@@ -70,8 +106,9 @@ $relevant = getRelevant($newinfo['classid']);
 </div>
 <div class="more-btn">
     <div class="content-dtn text-center">
-        <a href="">
-            <div class="content-ac1"><?=$newinfo['diggtop']?></div>
+        <a href="javascipt:;" onclick="thumbsup()">
+            <div class="<?=($dian)?'content-ac11':'content-ac1'?>"><?=$newinfo['diggtop']?></div>
+            <input type="hidden" value="<?=$mid?>" id="articleid">
         </a>
         <a href="#">
             <div class="content-ac2" data-cmd="weixin">朋友圈</div>
@@ -87,41 +124,30 @@ $relevant = getRelevant($newinfo['classid']);
         <li>
             <div class="clearfix">
                 <div class="pull-left title-tli1">热门跟帖</div>
-                <div class="pull-right title-con1"><a href="">发帖<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></div>
+                <div class="pull-right title-con1"><a href="#" data-reveal-id="myModal" data-animation="fade">发帖<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></div>
             </div>
         </li>
+        <?php  
+        if($hotpl['info']) {
+            for($hot=0;$hot<3;$hot++) {
+        ?>
         <li>
             <div class="clearfix">
                 <div class="pull-left">
-                    <div class="li-title"><a href="">大战网易键盘侠【网易陕西...</a></div>
-                    <div class="li-content">怎么这样对待老领导</div>
+                    <div class="li-title"><a href=""><?=($hotpl['info'][$hot]['username'])?$hotpl['info'][$hot]['username']:'匿名用户'?></a></div>
+                    <div class="li-content"><?=$hotpl['info'][$hot]['saytext']?></div>
                 </div>
-                <div class="pull-right li-rt"><a href="">219 顶</a></div>
+                <div class="pull-right li-rt"><a href=""><?=$hotpl['info'][$hot]['zcnum']?> 顶</a></div>
             </div>
         </li>
-        <li>
-            <div class="clearfix">
-                <div class="pull-left">
-                    <div class="li-title"><a href="">大战网易键盘侠【网易陕西...</a></div>
-                    <div class="li-content">怎么这样对待老领导</div>
-                </div>
-                <div class="pull-right li-rt"><a href="">219 顶</a></div>
-            </div>
-        </li>
-        <li>
-            <div class="clearfix">
-                <div class="pull-left">
-                    <div class="li-title"><a href="">大战网易键盘侠【网易陕西...</a></div>
-                    <div class="li-content">怎么这样对待老领导</div>
-                </div>
-                <div class="pull-right li-rt"><a href="">219 顶</a></div>
-            </div>
-        </li>
+        <?php }} ?>
     </ul>
     <div class="bottom-con">
-        <div class="con-bt">102人跟帖，652人参与</div>
+        <div class="con-bt"><?=($hotpl['num'])?$hotpl['num']:0?>人跟帖，<?=($hotpl['tonum'])?$hotpl['tonum']:0?>人参与</div>
         <div class="show-col show-icai show-detail">
-            <img src="images/15.jpg" alt="">
+            <a href="newsdetail.php?mid=<?=$bestonclick['id']?>">
+                <img style="width:608px;height:210px;" src="<?=($bestonclick['titlepic'])?$bestonclick['titlepic']:'images/15.jpg'?>">
+            </a>
             <div class="head-r">独家</div>
         </div>
         <div class="show-bo" style="font-size:0.2rem"><a href="newsdetail.php?mid=<?=$bestonclick['id']?>"><?=$bestonclick['title']?></a></div>
@@ -165,9 +191,9 @@ $relevant = getRelevant($newinfo['classid']);
             <?=(strlen($newslist[3]['title'])>72) ? mb_substr($newslist[3]['title'], 0, 24 ,'utf-8') : $newslist[3]['title'];?>
             </a></div>
             <div class="show-col">
-                <div class="col-xs-4 col-xs-4-f"><a href="newsdetail.php?mid=<?=$newslist[3]['id']?>"><img src="images/bao1.jpg" alt=""></a></div>
-                <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$newslist[4]['id']?>"><img src="images/bao2.jpg" alt=""></a></div>
-                <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$newslist[5]['id']?>"><img src="images/bao3.jpg" alt=""></a></div>
+                <div class="col-xs-4 col-xs-4-f"><a href="newsdetail.php?mid=<?=$newslist[3]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[3]['titlepic'])?$newslist[3]['titlepic']:'images/bao1.jpg'?>"></a></div>
+                <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$newslist[4]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[4]['titlepic'])?$newslist[4]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$newslist[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[5]['titlepic'])?$newslist[5]['titlepic']:'images/bao3.jpg'?>"></a></div>
             </div>
             <div class="clearfix left-b1">
                 <div class="pull-left house-gp"><?=getRelease($newslist[3]['newstime'])?></div>
@@ -178,7 +204,7 @@ $relevant = getRelevant($newinfo['classid']);
     <li>
         <a href="">
             <div class="clearfix">
-                <div class="pull-left news-img"><img src="images/01.jpg"></div>
+                <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($newslist[6]['titlepic'])?$newslist[6]['titlepic']:'images/01.jpg'?>"></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$newslist[6]['id']?>"><?=$newslist[6]['title']?></a></div>
                     <div class="clearfix date">
@@ -232,6 +258,53 @@ $relevant = getRelevant($newinfo['classid']);
     </div>
 </div>
 
+<div id="myModal" class="reveal-modal">
+
+<table width="50%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
+
+  <script>
+  function CheckPl(obj)
+  {
+    if(obj.saytext.value=="")
+    {
+        alert("错误，评论不能为空");
+        obj.saytext.focus();
+        return false;
+    }
+    return true;
+  }
+  </script>
+  <form action="../pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+  <tr> 
+    <td bgcolor="#f8fcff"> <table width="100%" border="0" cellspacing="1" cellpadding="3" class="retext">
+        <tr> 
+          <td width="78%"><div align="center"> 
+              <textarea name="saytext" cols="58" rows="6" id="saytext"></textarea>
+            </div></td>
+          <td width="22%" rowspan="2"> <div align="center">
+              <input name="imageField" type="submit" id="imageField" value=" 提 交 " />
+          </td>
+        </tr>
+        <tr> 
+          <td><div align="center"> 
+              <script src="/d/js/js/plface.js"></script>
+            </div></td>
+        </tr>
+      </table> </td>
+  </tr>
+  <a class="close-reveal-modal">&#215;</a>
+  <input name="id" type="hidden" id="id" value="[!--id--]" />
+  <input name="classid" type="hidden" id="classid" value="[!--classid--]" />
+  <input name="enews" type="hidden" id="enews" value="AddPl" />
+  <input name="repid" type="hidden" id="repid" value="0" />
+  </form>
+</table>
+
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.6.2.js"></script>
+<script type="text/javascript" src="./js/jquery.reveal.js"></script>
+<script src="http://www.jq22.com/js/jq.js"></script>
 
 <!--保险-->
 <?php include 'foot.php'; ?>>

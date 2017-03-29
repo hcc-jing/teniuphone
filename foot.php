@@ -5,16 +5,17 @@
         <div class="lind"><div class="lind-b"></div></div>
         <div class="dis-table">
             <ul class="nav-lind clearfix">
-                <li><a href="">财经</a></li>
-                <li><a href="">股票</a></li>
-                <li><a href="">基金</a></li>
-                <li><a href="">网贷</a></li>
-                <li><a href="">外汇</a></li>
-                <li><a href="">银行</a></li>
-                <li><a href="">黄金</a></li>
-                <li><a href="">保险</a></li>
-                <li><a href="">行情</a></li>
-                <li><a href="">论坛</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="finance.php">财经</a></li>
+                <li><a href="stock.php">股票</a></li>
+                <li><a href="fund.php">基金</a></li>
+                <li><a href="p2p.php">网贷</a></li>
+                <li><a href="forex.php">外汇</a></li>
+                <li><a href="bank.php">银行</a></li>
+                <li><a href="gold.php">黄金</a></li>
+                <li><a href="insurance.php">保险</a></li>
+                <li><a href="javascript:;">行情</a></li>
+                <li><a href="javascript:;">论坛</a></li>
             </ul>
         </div>
     </div>

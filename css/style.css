@@ -311,8 +311,10 @@ margin-left: 0.1rem;}
 .content-dtn {display: inline-block; }
 .content-dtn a { display: block; margin-left: 0.2rem; height:0.62rem; width: 1.85rem; border-radius: 0.31rem; border: 1px solid #c0c1c2; float: left; text-align: center; background: #fff;}
 .content-ac1 , .content-ac2 , .content-ac3 {padding-left:0.51rem; height: 0.62rem; line-height: 0.62rem; display: inline-block; font-size: 0.24rem; color: #b5b5b5;}
+.content-ac11{padding-left:0.51rem; height: 0.62rem; line-height: 0.62rem; display: inline-block; font-size: 0.24rem; color: #b5b5b5;}
 .content-ac1:hover , .content-ac2:hover , .content-ac3:hover , .content-dtn a:hover {cursor: pointer; color: #000; border-color: #000;}
 .content-ac1 {background: url("../images/logo04.jpg") left center no-repeat;}
+.content-ac11 {background: url("../images/logo04_1.jpg") left center no-repeat;}
 .content-ac2 {background: url("../images/logo03.jpg") left center no-repeat;}
 .content-ac3 {background: url("../images/logo02.jpg") left center no-repeat;}
 

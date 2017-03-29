@@ -6,6 +6,15 @@ $link=db_connect();
 $empire=new mysqlquery();
 define('Is_DB',true);
 require("../shareinfo/phonefunction.php");
+//客户端ip
+$sayip=egetip();
+$address = GetIpLookup($sayip);
+//判断是否存在cookie
+if(!isset($_COOKIE['uname'])) {
+    $uname = getUsername($address);
+    setcookie('uname', $uname, time()+86400);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
