@@ -308,11 +308,11 @@ margin-left: 0.1rem;}
 .content-tt1 {margin-top: 0.2rem;}
 .content-tt2 p:first-child , .content-tt3 p:first-child , .content-tt4 p:first-child  {font-size: 0.26rem; font-weight: bold; margin-top: 0.45rem;}
 .more-btn {display: block;padding-top: 0.5rem; background-color: #fff;}
-.content-dtn {display: inline-block; }
+.content-dtn {width:615px !important;display: inline-block; }
 .content-dtn a { display: block; margin-left: 0.2rem; height:0.62rem; width: 1.85rem; border-radius: 0.31rem; border: 1px solid #c0c1c2; float: left; text-align: center; background: #fff;}
 .content-ac1 , .content-ac2 , .content-ac3 {padding-left:0.51rem; height: 0.62rem; line-height: 0.62rem; display: inline-block; font-size: 0.24rem; color: #b5b5b5;}
 .content-ac11{padding-left:0.51rem; height: 0.62rem; line-height: 0.62rem; display: inline-block; font-size: 0.24rem; color: #b5b5b5;}
-.content-ac1:hover , .content-ac2:hover , .content-ac3:hover , .content-dtn a:hover {cursor: pointer; color: #000; border-color: #000;}
+.content-ac1:hover , .content-ac2:hover , .content-ac3:hover , .content-dtn a:hover {cursor: pointer !important; color: #000 !important; border-color: #000 !important;}
 .content-ac1 {background: url("../images/logo04.jpg") left center no-repeat;}
 .content-ac11 {background: url("../images/logo04_1.jpg") left center no-repeat;}
 .content-ac2 {background: url("../images/logo03.jpg") left center no-repeat;}
@@ -344,3 +344,24 @@ margin-left: 0.1rem;}
 .detail-last {padding-bottom: 0.16rem;}
 .detail-last li:last-child {border-bottom: 1px solid #c0c1c2;}
 
+.shareWrap a {display: block !important;
+margin-left: 0.2rem !important;
+height:0.62rem !important;
+width: 1.85rem !important;
+border-radius: 0.31rem !important;
+border: 1px solid #c0c1c2 !important;
+float: left !important;
+text-align: center !important;
+background: none !important; 
+
+margin-top: 0 !important;
+margin-right: 0 !important;
+margin-bottom: 0 !important;
+}
+
+.bd_weixin_popup{
+    left: 250px !important;
+    top: 2100px !important;
+    width: 240px !important;
+    height: 297px !important;
+}

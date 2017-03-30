@@ -34,10 +34,15 @@ if(!isset($_COOKIE['uname'])) {
 }
 
 //获取点赞情况
-$dian = getDianzan($sayip);
+$dian = getDianzan($sayip, $mid);
 
+//mp3
+$content = strip_tags($newinfo['newstext']);
+$s=str_replace('&ldquo;', '', $content);
+//$mp3 = getMp3($content, $sayip);
+//file_put_contents('1.mp3', $mp3, FILE_APPEND);
 // echo '<pre>';
-// print_r($dian);exit;
+// print_r($s);exit;
 
 ?>
 <!DOCTYPE html>
@@ -65,6 +70,28 @@ $dian = getDianzan($sayip);
             return clientWidth * 1/6.4;
         })();
 
+    </script>
+    <script>
+        function CheckPl(obj)
+  {
+    if(obj.saytext.value=="")
+    {
+        alert("错误，评论不能为空");
+        obj.saytext.focus();
+        return false;
+    }
+    return true;
+  }
+  function CheckPlj(obj)
+  {
+    if(obj.mydon.value=="")
+    {
+        alert("错误，评论不能为空");
+        obj.mydon.focus();
+        return false;
+    }
+    return true;
+  }
     </script>
     <style>
     h1 { font-size:32px; font-weight: bold; }
@@ -110,14 +137,17 @@ $dian = getDianzan($sayip);
             <div class="<?=($dian)?'content-ac11':'content-ac1'?>"><?=$newinfo['diggtop']?></div>
             <input type="hidden" value="<?=$mid?>" id="articleid">
         </a>
-        <a href="#">
-            <div class="content-ac2" data-cmd="weixin">朋友圈</div>
+        <div class="bdsharebuttonbox shareWrap">
+        <a href="#" data-cmd="weixin">
+            <div class="content-ac2">朋友圈</div>
         </a>
-        <a href="#" target="_blank">
-            <div class="content-ac3" data-cmd="tsina">微博</div>
+        <a href="#" target="_blank" data-cmd="tsina">
+            <div class="content-ac3">微博</div>
         </a>
+        </div>
     </div>
 </div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
 
 <div class="posts-list">
     <ul class="detail-list">
@@ -129,18 +159,19 @@ $dian = getDianzan($sayip);
         </li>
         <?php  
         if($hotpl['info']) {
-            for($hot=0;$hot<3;$hot++) {
+            foreach($hotpl['info'] as $hotval) {
+                $hot++;
         ?>
         <li>
             <div class="clearfix">
                 <div class="pull-left">
-                    <div class="li-title"><a href=""><?=($hotpl['info'][$hot]['username'])?$hotpl['info'][$hot]['username']:'匿名用户'?></a></div>
-                    <div class="li-content"><?=$hotpl['info'][$hot]['saytext']?></div>
+                    <div class="li-title"><a href=""><?=($hotval['username'])?$hotval['username']:'匿名用户'?></a></div>
+                    <div class="li-content"><?=$hotval['saytext']?></div>
                 </div>
-                <div class="pull-right li-rt"><a href=""><?=$hotpl['info'][$hot]['zcnum']?> 顶</a></div>
+                <div class="pull-right li-rt"><a href="javascript:;" aid="<?=$hotval['plid']?>" onclick="dingtop(this)"><?=$hotval['zcnum']?> 顶</a></div>
             </div>
         </li>
-        <?php }} ?>
+        <?php if($hot==3)break; }} ?>
     </ul>
     <div class="bottom-con">
         <div class="con-bt"><?=($hotpl['num'])?$hotpl['num']:0?>人跟帖，<?=($hotpl['tonum'])?$hotpl['tonum']:0?>人参与</div>
@@ -247,12 +278,16 @@ $dian = getDianzan($sayip);
 <div class="foot-b text-center">
     <div class="no-more">没有更多了</div>
     <div class="clearfix text-t">
+        <form action="myfunction.php?act=say" method="post" name="gooddon" id="gooddon" onsubmit="return CheckPlj(document.gooddon)">
         <div class="pull-left">
-            <input type="text" class="form-control text-idea" placeholder="说说你的看法...">
+            <input type="text" name="mydon" class="form-control text-idea" placeholder="说说你的看法...">
         </div>
         <div class="pull-right">
-            <input style="margin-left:0.45rem" type="button" name="addpl" value="提交">
-            <a href=""><img src="images/logo06.jpg" alt=""></a>
+            <input name="yid" type="hidden" id="yid" value="<?=$mid?>" />
+            <input name="classids" type="hidden" id="classids" value="<?=$newinfo['classid']?>" />
+            <input style="margin-left:0.45rem" type="submit" name="addpl" value="提交">
+        </form>
+            <a href="javascript:;" onclick="thumbsup()"><img src="images/logo06.jpg" alt=""></a>
             <a href=""><img src="images/logo07.jpg" alt=""></a>
         </div>
     </div>
@@ -262,19 +297,7 @@ $dian = getDianzan($sayip);
 
 <table width="50%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
 
-  <script>
-  function CheckPl(obj)
-  {
-    if(obj.saytext.value=="")
-    {
-        alert("错误，评论不能为空");
-        obj.saytext.focus();
-        return false;
-    }
-    return true;
-  }
-  </script>
-  <form action="../pl/doaction.php" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
+  <form action="myfunction.php?act=say" method="post" name="saypl" id="saypl" onsubmit="return CheckPl(document.saypl)">
   <tr> 
     <td bgcolor="#f8fcff"> <table width="100%" border="0" cellspacing="1" cellpadding="3" class="retext">
         <tr> 
@@ -293,10 +316,8 @@ $dian = getDianzan($sayip);
       </table> </td>
   </tr>
   <a class="close-reveal-modal">&#215;</a>
-  <input name="id" type="hidden" id="id" value="[!--id--]" />
-  <input name="classid" type="hidden" id="classid" value="[!--classid--]" />
-  <input name="enews" type="hidden" id="enews" value="AddPl" />
-  <input name="repid" type="hidden" id="repid" value="0" />
+  <input name="mid" type="hidden" id="mid" value="<?=$mid?>" />
+  <input name="classid" type="hidden" id="classid" value="<?=$newinfo['classid']?>" />
   </form>
 </table>
 
