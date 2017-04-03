@@ -27,7 +27,7 @@ $insu    = getClassinfo(4, 6);
       <div class="carousel-inner" role="listbox">
           <div class="item active">
           <a href="newsdetail.php?mid=<?=$firsttitle[1]['id']?>">
-          <img src="<?=$firsttitle[1]['titlepic']?>"  style="width:640px;height:324px">
+          <img src="http://www.teniunet.com<?=$firsttitle[1]['titlepic']?>"  style="width:6.4rem;height:3.24rem">
           <div class="carousel-caption">
             <div class="clearfix">
                 <div class="pull-right"><span>1/</span>6</div>
@@ -41,7 +41,7 @@ $insu    = getClassinfo(4, 6);
           ?>
           <div class="item">
           <a href="newsdetail.php?mid=<?=$firsttitle[$i]['id']?>">
-          <img src="<?=$firsttitle[$i]['titlepic']?>"  style="width:640px;height:324px">
+          <img src="http://www.teniunet.com<?=$firsttitle[$i]['titlepic']?>"  style="width:6.4rem;height:3.24rem">
           <div class="carousel-caption">
             <div class="clearfix">
                 <div class="pull-left news-img-ttss"><?=$firsttitle[$i]['title']?></div>
@@ -71,7 +71,7 @@ $insu    = getClassinfo(4, 6);
         ?>
         	<li>            	
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$finval['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($finval['titlepic'])?'http://www.teniunet.com'.$finval['titlepic']:'images/01.jpg'?>"></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$finval['id']?>"><?=$finval['title']?></a></div>
                         <div class="clearfix date">
@@ -93,8 +93,8 @@ $insu    = getClassinfo(4, 6);
         </div>
         <div class="lind"><div class="lind-b"></div></div>
         <div class="news-figure clearfix">
-        	<div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$stock[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$stock[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$stock[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$stock[1]['title']?></div></a></div>
+        	<div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$stock[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($stock[0]['titlepic'])?'http://www.teniunet.com'.$stock[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$stock[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$stock[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($stock[1]['titlepic'])?'http://www.teniunet.com'.$stock[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$stock[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -103,7 +103,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$stock[$s]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$stock[$s]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($stock[$s]['titlepic'])?'http://www.teniunet.com'.$stock[$s]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$stock[$s]['id']?>"><?=$stock[$s]['title']?></a></div>
                         <div class="clearfix date">
@@ -125,8 +125,8 @@ $insu    = getClassinfo(4, 6);
             <div class="pull-right list-tt-lind"><a href="newslist.php?mid=16">要闻</a><a href="newslist.php?mid=17">观点</a><a href="newslist.php?mid=18">学院</a><a href="javascript:;">超市</a></div>
         </div>
         <div class="news-figure clearfix">
-            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$funds[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$funds[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$funds[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$funds[1]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$funds[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($funds[0]['titlepic'])?'http://www.teniunet.com'.$funds[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$funds[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$funds[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($funds[1]['titlepic'])?'http://www.teniunet.com'.$funds[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$funds[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -135,7 +135,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$funds[$f]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$funds[$f]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($funds[$f]['titlepic'])?'http://www.teniunet.com'.$funds[$f]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$funds[$f]['id']?>"><?=$funds[$f]['title']?></a></div>
                         <div class="clearfix date">
@@ -157,8 +157,8 @@ $insu    = getClassinfo(4, 6);
             <div class="pull-right list-tt-lind"><a href="newslist.php?mid=53">市场</a><a href="newslist.php?mid=54">政策</a><a href="newslist.php?mid=55">公司</a><a href="newslist.php?mid=47">平台</a></div>
         </div>
         <div class="news-figure clearfix">
-            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$p2p[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$p2p[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$p2p[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$p2p[1]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$p2p[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($p2p[0]['titlepic'])?'http://www.teniunet.com'.$p2p[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$p2p[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$p2p[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($p2p[1]['titlepic'])?'http://www.teniunet.com'.$p2p[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$p2p[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -167,7 +167,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$p2p[$p2]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$p2p[$p2]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($p2p[$p2]['titlepic'])?'http://www.teniunet.com'.$p2p[$p2]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$p2p[$p2]['id']?>"><?=$p2p[$p2]['title']?></a></div>
                         <div class="clearfix date">
@@ -189,8 +189,8 @@ $insu    = getClassinfo(4, 6);
             <div class="pull-right list-tt-lind"><a href="newslist.php?mid=19">动态</a><a href="newslist.php?mid=20">研究</a><a href="newslist.php?mid=21">美元</a><a href="newslist.php?mid=24">人民币</a></div>
         </div>
         <div class="news-figure clearfix">
-            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$forex[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$forex[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$forex[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$forex[1]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$forex[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($forex[0]['titlepic'])?'http://www.teniunet.com'.$forex[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$forex[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$forex[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($forex[1]['titlepic'])?'http://www.teniunet.com'.$forex[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$forex[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -199,7 +199,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$forex[$fo]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$forex[$fo]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($forex[$fo]['titlepic'])?'http://www.teniunet.com'.$forex[$fo]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$forex[$fo]['id']?>"><?=$forex[$fo]['title']?></a></div>
                         <div class="clearfix date">
@@ -221,8 +221,8 @@ $insu    = getClassinfo(4, 6);
             <div class="pull-right list-tt-lind"><a href="newslist.php?mid=32">监管</a><a href="newslist.php?mid=29">行业</a><a href="newslist.php?mid=30">点评</a><a href="newslist.php?mid=31">理财</a></div>
         </div>
         <div class="news-figure clearfix">
-            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$bank[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$bank[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$bank[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$bank[1]['title']?></div></a></div>
+           <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$bank[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($bank[0]['titlepic'])?'http://www.teniunet.com'.$bank[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$bank[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$bank[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($bank[1]['titlepic'])?'http://www.teniunet.com'.$bank[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$bank[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -231,7 +231,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$bank[$b]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$bank[$b]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($bank[$b]['titlepic'])?'http://www.teniunet.com'.$bank[$b]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$bank[$b]['id']?>"><?=$bank[$b]['title']?></a></div>
                         <div class="clearfix date">
@@ -253,8 +253,8 @@ $insu    = getClassinfo(4, 6);
             <div class="pull-right list-tt-lind"><a href="newslist.php?mid=43">行业</a><a href="newslist.php?mid=46">新品</a><a href="newslist.php?mid=45">攻略</a><a href="newslist.php?mid=44">公司</a></div>
         </div>
         <div class="news-figure clearfix">
-            <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$insu[0]['id']?>"><img src="images/02.jpg"><div class="news-img-tt"><?=$insu[0]['title']?></div></a></div>
-            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$insu[1]['id']?>"><img src="images/03.jpg"><div class="news-img-tt"><?=$insu[1]['title']?></div></a></div>
+           <div class="col-xs-6 col-xs-6-one"><a href="newsdetail.php?mid=<?=$insu[0]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($insu[0]['titlepic'])?'http://www.teniunet.com'.$insu[0]['titlepic']:'images/02.jpg'?>"><div class="news-img-tt"><?=$insu[0]['title']?></div></a></div>
+            <div class="col-xs-6 col-xs-6-tow"><a href="newsdetail.php?mid=<?=$insu[1]['id']?>"><img style="width:3.18rem;height:1.74rem;" src="<?=($insu[1]['titlepic'])?'http://www.teniunet.com'.$insu[1]['titlepic']:'images/03.jpg'?>"><div class="news-img-tt"><?=$insu[1]['title']?></div></a></div>
         </div>
         <ul class="news-ul">
         <?php  
@@ -263,7 +263,7 @@ $insu    = getClassinfo(4, 6);
         ?>
             <li>                
                 <div class="clearfix">
-                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$insu[$in]['id']?>"><img src="images/01.jpg"></a></div>
+                    <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$insu[$in]['id']?>"><img style="width:1.4rem;height:1.1rem;" src="<?=($insu[$in]['titlepic'])?'http://www.teniunet.com'.$insu[$in]['titlepic']:'images/01.jpg'?>"></a></div>
                     <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$insu[$in]['id']?>"><?=$insu[$in]['title']?></a></div>
                         <div class="clearfix date">

@@ -17,13 +17,12 @@
 	.reveal-modal {
 		visibility: hidden;
 		top: 100px; 
-		left: 50%;
-		margin-left: -300px;
-		width: 500px;
+		left: 60%;
+		margin-left: -270px;
 		background: #eee url(../images/modal-gloss.png) no-repeat -200px -80px;
 		position: absolute;
 		z-index: 101;
-		padding: 30px 40px 34px;
+		padding: 30px 0px;
 		-moz-border-radius: 5px;
 		-webkit-border-radius: 5px;
 		border-radius: 5px;
@@ -48,4 +47,3 @@
 		font-weight: bold;
 		cursor: pointer;
 		} 
-

@@ -33,7 +33,7 @@ $mingjia = returnClassinfo(46, 5);
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <a href="newsdetail.php?mid=<?=$isgood[0]['id']?>">
-            <img src="<?=$isgood[0]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[0]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -47,7 +47,7 @@ $mingjia = returnClassinfo(46, 5);
         ?>
         <div class="item">
             <a href="newsdetail.php?mid=<?=$isgood[$i]['id']?>">
-            <img src="<?=$isgood[$i]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[$i]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -68,11 +68,11 @@ $mingjia = returnClassinfo(46, 5);
                         <div class="col-xs-4 col-xs-4-f">
                             <div class="head-r">独家</div>
                             <a href="newsdetail.php?mid=<?=$neican[0]['id']?>">
-                                <img style="width:197px;height:123px;" src="<?=($neican[0]['titlepic'])?$neican[0]['titlepic']:'images/16.jpg'?>">
+                                <img style="width:1.97rem;height:1.23rem;" src="<?=($neican[0]['titlepic'])?'http://www.teniunet.com'.$neican[0]['titlepic']:'images/16.jpg'?>">
                             </a>
                         </div>
-                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[1]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[1]['titlepic'])?$neican[1]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[2]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[2]['titlepic'])?$neican[2]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[1]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[1]['titlepic'])?'http://www.teniunet.com'.$neican[1]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[2]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[2]['titlepic'])?'http://www.teniunet.com'.$neican[2]['titlepic']:'images/bao3.jpg'?>"></a></div>
                     </div>
                     <div class="clearfix left-b1">
                         <div class="pull-left industry"><?=getClassname($neican[0]['classid'])?></div>
@@ -83,7 +83,7 @@ $mingjia = returnClassinfo(46, 5);
         </li>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[3]['titlepic'])?$neican[3]['titlepic']:'images/01.jpg'?>"></div>
+                    <div class="pull-left news-img"><img src="<?=($neican[3]['titlepic'])?'http://www.teniunet.com'.$neican[3]['titlepic']:'images/01.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[3]['id']?>"><?=$neican[3]['title']?></a></div>
                         <div class="news-icon icon-none"><?=($neican[3]['plnum'])?></div>
@@ -97,11 +97,11 @@ $mingjia = returnClassinfo(46, 5);
                         <div class="col-xs-4 col-xs-4-f">
                             <div class="head-r">独家</div>
                             <a href="newsdetail.php?mid=<?=$neican[4]['id']?>">
-                                <img style="width:197px;height:123px;" src="<?=($neican[4]['titlepic'])?$neican[4]['titlepic']:'images/16.jpg'?>">
+                                <img style="width:1.97rem;height:1.23rem;" src="<?=($neican[4]['titlepic'])?'http://www.teniunet.com'.$neican[4]['titlepic']:'images/16.jpg'?>">
                             </a>
                         </div>
-                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[5]['titlepic'])?$neican[1]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[6]['titlepic'])?$neican[2]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[5]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[5]['titlepic'])?'http://www.teniunet.com'.$neican[1]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[6]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[6]['titlepic'])?'http://www.teniunet.com'.$neican[2]['titlepic']:'images/bao3.jpg'?>"></a></div>
                     </div>
                     <div class="clearfix left-b1">
                         <div class="pull-left industry"><?=getClassname($neican[4]['classid'])?></div>
@@ -125,7 +125,7 @@ $mingjia = returnClassinfo(46, 5);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($isgood[$is]['titlepic'])?$isgood[$is]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img src="<?=($isgood[$is]['titlepic'])?'http://www.teniunet.com'.$isgood[$is]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$isgood[$is]['id']?>"><?=$isgood[$is]['title']?></a></div>
                         <div class="clearfix date">

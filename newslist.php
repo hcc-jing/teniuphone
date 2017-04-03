@@ -22,7 +22,7 @@ $pagecount = ceil($counts/$pagesize);
         ?>    
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$newval['id']?>"><img src="images/01.jpg"></a></div>
+                <div class="pull-left news-img"><img src="<?=($newval['titlepic'])?'http://www.teniunet.com'.$newval['titlepic']:'images/01.jpg'?>"></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$newval['id']?>"><?=$newval['title']?></a></div>
                     <div class="clearfix date">

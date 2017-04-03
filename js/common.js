@@ -1,5 +1,5 @@
 
-        $(".search_logo").click(function(){
+    $(".search_logo").click(function(){
             if($(".nav-down").is(":hidden"))
             {
                 $(".nav-down").slideDown("slow");

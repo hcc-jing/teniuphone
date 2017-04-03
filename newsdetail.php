@@ -1,4 +1,5 @@
 <?php  
+ini_set('max_execution_time', '0');
 require("../e/class/connect.php");
 require("../e/class/db_sql.php");
 require("../e/class/q_functions.php");
@@ -37,12 +38,25 @@ if(!isset($_COOKIE['uname'])) {
 $dian = getDianzan($sayip, $mid);
 
 //mp3
-$content = strip_tags($newinfo['newstext']);
-$s=str_replace('&ldquo;', '', $content);
-//$mp3 = getMp3($content, $sayip);
-//file_put_contents('1.mp3', $mp3, FILE_APPEND);
+$filename = $mid . '.mp3';
+
+if(file_exists('audio/'.$filename)) {
+    $mp3 = 'audio/'.$filename;
+}else {
+   $content = $newinfo['newstext'];
+   $mymp3   = getAudio($content, $sayip, $filename);
+   $mp3 = 'audio/'.$mymp3;
+}
+
+//页面标题
+$titlepage = $newinfo['title'] .'- 特牛新闻详情';
+
+//页面地址
+$pageurl   = curPageURL();
+// $content = $newinfo['newstext'];
+// $mymp3   = getAudio($content, $sayip, $filename);
 // echo '<pre>';
-// print_r($s);exit;
+// print_r($_SERVER);exit;
 
 ?>
 <!DOCTYPE html>
@@ -55,10 +69,13 @@ $s=str_replace('&ldquo;', '', $content);
 
 
     <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/audioplayer.css" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reveal.css">
-    <script type="text/javascript" src="/phone/js/myfunction.js"></script>
+    
+    <script type="text/javascript" src="js/myfunction.js"></script>
+    <script type="text/javascript" src="js/share.js"></script>
     <script type="text/javascript">
 
         //html root的字体计算应该放在最前面，这样计算就不会有误差了/
@@ -93,6 +110,20 @@ $s=str_replace('&ldquo;', '', $content);
     return true;
   }
     </script>
+    <script>
+        /*
+            iOS浏览BUG修复
+            by @mathias, @cheeaun and @jdalton
+        */
+        (function(doc){var addEvent='addEventListener',type='gesturestart',qsa='querySelectorAll',scales=[1,1],meta=qsa in doc?doc[qsa]('meta[name=viewport]'):[];function fix(){meta.content='width=device-width,minimum-scale='+scales[0]+',maximum-scale='+scales[1];doc.removeEventListener(type,fix,true);}if((meta=meta[meta.length-1])&&addEvent in doc){fix();scales=[.25,1.6];doc[addEvent](type,fix,true);}}(document));
+    </script>
+    <script>var _gaq=[['_setAccount','UA-20257902-1'],['_trackPageview']];(function(d,t){ var g=d.createElement(t),s=d.getElementsByTagName(t)[0]; g.async=1;g.src='//www.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'))</script>
+    <script src="./audiojs/audio.min.js"></script>
+    <script>
+      audiojs.events.ready(function() {
+        audiojs.createAll();
+      });
+    </script>
     <style>
     h1 { font-size:32px; font-weight: bold; }
     h2 { color: #1e3a9e; font-size: 25px; font-weight: bold;  }
@@ -110,7 +141,7 @@ $s=str_replace('&ldquo;', '', $content);
     .ecommentauthor {float:left; color:#F96; font-weight:bold;}
     .ecommenttext {clear:left;margin:0;padding:0;}
     </style>
-<script src="/e/data/js/ajax.js"></script>
+<script src="http://www.teniunet.com/e/data/js/ajax.js"></script>
 </head>
 <body>
 <div class="img-top"><img src="images/top.jpg"></div>
@@ -124,27 +155,38 @@ $s=str_replace('&ldquo;', '', $content);
         </li>
         <li>
             <div class="content-tt1">
-			
-			<p><img src="images/bofangqi.png"></p>
+
+			<!-- 播放器 -->
+            <div id="wrapper">
+                    <audio src="<?=$mp3?>" preload="auto"></audio>
+                    <script src="js/jquery.min.js"></script>
+            </div>
+
+            <!-- 播放器 -->
+
 			<br>
 			<?=stripslashes($newinfo['newstext'])?>
         </li>
     </ul>
 </div>
+<input type="hidden" id="title" value="<?=$titlepage?>">
+<input type="hidden" id="url" value="<?=$pageurl?>">
+<input type="hidden" id="uid" value="1626433">
+<input type="hidden" id="jtss" value="0">
+<input type="hidden" id="summary" value="">
+<input type="hidden" id="pic" value="">
 <div class="more-btn">
     <div class="content-dtn text-center">
         <a href="javascipt:;" onclick="thumbsup()">
             <div class="<?=($dian)?'content-ac11':'content-ac1'?>"><?=$newinfo['diggtop']?></div>
             <input type="hidden" value="<?=$mid?>" id="articleid">
         </a>
-        <div class="bdsharebuttonbox shareWrap">
-        <a href="#" data-cmd="weixin">
+        <a onclick="jiathis_sendto('weixin');return false;">
             <div class="content-ac2">朋友圈</div>
         </a>
-        <a href="#" target="_blank" data-cmd="tsina">
+        <a onclick="jiathis_mh5.sendTo('tsina');">
             <div class="content-ac3">微博</div>
-        </a>
-        </div>
+        </a>  
     </div>
 </div>
 <script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
@@ -177,7 +219,7 @@ $s=str_replace('&ldquo;', '', $content);
         <div class="con-bt"><?=($hotpl['num'])?$hotpl['num']:0?>人跟帖，<?=($hotpl['tonum'])?$hotpl['tonum']:0?>人参与</div>
         <div class="show-col show-icai show-detail">
             <a href="newsdetail.php?mid=<?=$bestonclick['id']?>">
-                <img style="width:608px;height:210px;" src="<?=($bestonclick['titlepic'])?$bestonclick['titlepic']:'images/15.jpg'?>">
+                <img style="width:6.08rem;height:2.18rem;" src="<?=($bestonclick['titlepic'])?'http://www.teniunet.com'.$bestonclick['titlepic']:'images/15.jpg'?>">
             </a>
             <div class="head-r">独家</div>
         </div>
@@ -187,7 +229,7 @@ $s=str_replace('&ldquo;', '', $content);
 
 
  <!--相关专题-->
-<div align="center" style="background-color:#FFFFFF; padding-bottom:10px;"><img src="images/niuzai.jpg"></div>
+<div align="center" style="background-color:#FFFFFF; padding-bottom:10px;"><img style="width:6.08rem;height:0.82rem" src="images/niuzai.jpg"></div>
 
 <!--热门新闻-->
 <div class="news-list">
@@ -222,9 +264,9 @@ $s=str_replace('&ldquo;', '', $content);
             <?=(strlen($newslist[3]['title'])>72) ? mb_substr($newslist[3]['title'], 0, 24 ,'utf-8') : $newslist[3]['title'];?>
             </a></div>
             <div class="show-col">
-                <div class="col-xs-4 col-xs-4-f"><a href="newsdetail.php?mid=<?=$newslist[3]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[3]['titlepic'])?$newslist[3]['titlepic']:'images/bao1.jpg'?>"></a></div>
-                <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$newslist[4]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[4]['titlepic'])?$newslist[4]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$newslist[5]['id']?>"><img style="width:197px;height:123px;" src="<?=($newslist[5]['titlepic'])?$newslist[5]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                <div class="col-xs-4 col-xs-4-f"><a href="newsdetail.php?mid=<?=$newslist[3]['id']?>"><img src="<?=($newslist[3]['titlepic'])?'http://www.teniunet.com'.$newslist[3]['titlepic']:'images/bao1.jpg'?>"></a></div>
+                <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$newslist[4]['id']?>"><img src="<?=($newslist[4]['titlepic'])?'http://www.teniunet.com'.$newslist[4]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$newslist[5]['id']?>"><img src="<?=($newslist[5]['titlepic'])?'http://www.teniunet.com'.$newslist[5]['titlepic']:'images/bao3.jpg'?>"></a></div>
             </div>
             <div class="clearfix left-b1">
                 <div class="pull-left house-gp"><?=getRelease($newslist[3]['newstime'])?></div>
@@ -235,7 +277,7 @@ $s=str_replace('&ldquo;', '', $content);
     <li>
         <a href="">
             <div class="clearfix">
-                <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($newslist[6]['titlepic'])?$newslist[6]['titlepic']:'images/01.jpg'?>"></div>
+                <div class="pull-left news-img"><img src="<?=($newslist[6]['titlepic'])?'http://www.teniunet.com'.$newslist[6]['titlepic']:'images/01.jpg'?>"></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$newslist[6]['id']?>"><?=$newslist[6]['title']?></a></div>
                     <div class="clearfix date">
@@ -279,20 +321,22 @@ $s=str_replace('&ldquo;', '', $content);
     <div class="no-more">没有更多了</div>
     <div class="clearfix text-t">
         <form action="myfunction.php?act=say" method="post" name="gooddon" id="gooddon" onsubmit="return CheckPlj(document.gooddon)">
-        <div class="pull-left">
+        <div class="pull-left" style="float:left;">
             <input type="text" name="mydon" class="form-control text-idea" placeholder="说说你的看法...">
         </div>
-        <div class="pull-right">
+        <div class="pull-right"  style="float:left;">
             <input name="yid" type="hidden" id="yid" value="<?=$mid?>" />
             <input name="classids" type="hidden" id="classids" value="<?=$newinfo['classid']?>" />
             <input style="margin-left:0.45rem" type="submit" name="addpl" value="提交">
         </form>
-            <a href="javascript:;" onclick="thumbsup()"><img src="images/logo06.jpg" alt=""></a>
-            <a href=""><img src="images/logo07.jpg" alt=""></a>
+            <a href="javascript:;" onclick="thumbsup()"><img src="images/logo<?=($dian)?'08':'06'?>.png" alt=""></a>
+           <a href="http://www.jiathis.com/share?url=http%3A%2F%2Fwww.teniunet.com%2Fphone%2Fnewsdetail.php%3Fmid%3D<?=$mid?>&amp;title=<?=$titlepage?>&amp;uid=1626433" target="_blank"><img src="images/logo07.jpg" alt="更多分享"></a> 
         </div>
     </div>
 </div>
-
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_m.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 <div id="myModal" class="reveal-modal">
 
 <table width="50%" border="0" align="center" cellpadding="3" cellspacing="1" bgcolor="#CCCCCC">
@@ -310,7 +354,7 @@ $s=str_replace('&ldquo;', '', $content);
         </tr>
         <tr> 
           <td><div align="center"> 
-              <script src="/d/js/js/plface.js"></script>
+              <script src="http://www.teniunet.com/d/js/js/plface.js"></script>
             </div></td>
         </tr>
       </table> </td>
@@ -324,8 +368,7 @@ $s=str_replace('&ldquo;', '', $content);
 </div>
 
 <script src="http://www.jq22.com/jquery/jquery-1.6.2.js"></script>
-<script type="text/javascript" src="./js/jquery.reveal.js"></script>
-<script src="http://www.jq22.com/js/jq.js"></script>
+<script type="text/javascript" src="js/jquery.reveal.js"></script>
 
 <!--保险-->
-<?php include 'foot.php'; ?>>
+<?php include 'foot.php'; ?>

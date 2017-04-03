@@ -43,7 +43,7 @@ $mingjia = returnClassinfo(32, 6);
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <a href="newsdetail.php?mid=<?=$isgood[0]['id']?>">
-            <img src="<?=$isgood[0]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[0]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -57,7 +57,7 @@ $mingjia = returnClassinfo(32, 6);
         ?>
         <div class="item">
             <a href="newsdetail.php?mid=<?=$isgood[$i]['id']?>">
-            <img src="<?=$isgood[$i]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[$i]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -99,7 +99,7 @@ $mingjia = returnClassinfo(32, 6);
         </li>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[0]['titlepic'])?$neican[0]['titlepic']:'images/09.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[0]['titlepic'])?'http://www.teniunet.com'.$neican[0]['titlepic']:'images/09.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[0]['id']?>"><?=$neican[0]['title']?></a></div>
                         <div class="clearfix date">
@@ -126,7 +126,7 @@ $mingjia = returnClassinfo(32, 6);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[$nei]['titlepic'])?'http://www.teniunet.com'.$neican[$nei]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><?=$neican[$nei]['title']?></a></div>
                         <div class="news-icon"><?=$neican[$nei]['plnum']?></div>
@@ -140,14 +140,14 @@ $mingjia = returnClassinfo(32, 6);
             <div class="col-xs-6 col-xs-6-wd1">
                 <div class="adsf">
                     <a href="newsdetail.php?mid=<?=$neican[5]['id']?>">
-                    <img style="width:297px;height:132px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/16.jpg'?>"></a>
+                    <img style="width:2.97rem;height:1.32rem;" src="<?=($neican[$nei]['titlepic'])?'http://www.teniunet.com'.$neican[$nei]['titlepic']:'images/16.jpg'?>"></a>
                     <div class="col-xs-6-b66"><?=$neican[5]['title']?></div>
                 </div>
             </div>
             <div class="col-xs-6 col-xs-6-wd2">
                 <div class="adsf">
                     <a href="newsdetail.php?mid=<?=$neican[6]['id']?>">
-                    <img style="width:297px;height:132px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/17.jpg'?>"></a>
+                    <img style="width:2.97rem;height:1.32rem;" src="<?=($neican[$nei]['titlepic'])?'http://www.teniunet.com'.$neican[$nei]['titlepic']:'images/17.jpg'?>"></a>
                     <div class="col-xs-6-b66"><?=$neican[6]['title']?></div>
                 </div>
             </div>
@@ -166,7 +166,7 @@ $mingjia = returnClassinfo(32, 6);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[$nei2]['titlepic'])?$neican[$nei2]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[$nei2]['titlepic'])?'http://www.teniunet.com'.$neican[$nei2]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei2]['id']?>"><?=$neican[$nei2]['title']?></a></div>
                         <div class="clearfix date">
@@ -185,7 +185,7 @@ $mingjia = returnClassinfo(32, 6);
     <div class="lianghui"><a href="newsdetail.php?mid=<?=$neican[12]['id']?>"><?=$neican[12]['title']?></a></div>
     <div class="show-col show-icai">
         <a href="newsdetail.php?mid=<?=$neican[12]['id']?>">
-        <img style="width:608px;height:271px;" src="<?=($neican[12]['titlepic'])?$neican[12]['titlepic']:'images/13.png'?>"></a>
+        <img style="width:6.08rem;height:2.71rem;" src="<?=($neican[12]['titlepic'])?'http://www.teniunet.com'.$neican[12]['titlepic']:'images/13.png'?>"></a>
         <div class="head-r">独家</div>
     </div>
     <div class="clearfix left-b1">
@@ -206,7 +206,7 @@ $mingjia = returnClassinfo(32, 6);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($ticai[$ti]['titlepic'])?$ticai[$ti]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($ticai[$ti]['titlepic'])?'http://www.teniunet.com'.$ticai[$ti]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><?=$ticai[$ti]['title']?></a></div>
                         <div class="clearfix date">
@@ -225,7 +225,7 @@ $mingjia = returnClassinfo(32, 6);
     <div class="lianghui"><a href="newsdetail.php?mid=<?=$ticai[5]['id']?>"><?=$ticai[5]['title']?></a></div>
     <div class="show-col show-icai">
         <a href="newsdetail.php?mid=<?=$ticai[5]['id']?>">
-        <img style="width:608px;height:271px;" src="<?=($ticai[5]['titlepic'])?$ticai[5]['titlepic']:'images/13.png'?>"></a>
+        <img style="width:6.08rem;height:2.71rem;" src="<?=($ticai[5]['titlepic'])?'http://www.teniunet.com'.$ticai[5]['titlepic']:'images/13.png'?>"></a>
         <div class="head-r">独家</div>
     </div>
     <div class="clearfix left-b1">
@@ -246,7 +246,7 @@ $mingjia = returnClassinfo(32, 6);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($zhuli[$zhu]['titlepic'])?$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($zhuli[$zhu]['titlepic'])?'http://www.teniunet.com'.$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><?=$zhuli[$zhu]['title']?></a></div>
                         <div class="clearfix date">
@@ -265,7 +265,7 @@ $mingjia = returnClassinfo(32, 6);
     <div class="lianghui"><a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>"><?=$zhuli[5]['title']?></a></div>
     <div class="show-col show-icai">
         <a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>">
-        <img style="width:608px;height:271px;" src="<?=($zhuli[5]['titlepic'])?$zhuli[5]['titlepic']:'images/13.png'?>"></a>
+        <img style="width:6.08rem;height:2.71rem;" src="<?=($zhuli[5]['titlepic'])?'http://www.teniunet.com'.$zhuli[5]['titlepic']:'images/13.png'?>"></a>
         <div class="head-r">独家</div>
     </div>
     <div class="clearfix left-b1">
@@ -286,7 +286,7 @@ $mingjia = returnClassinfo(32, 6);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($mingjia[$ming]['titlepic'])?$mingjia[$ming]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($mingjia[$ming]['titlepic'])?'http://www.teniunet.com'.$mingjia[$ming]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><?=$mingjia[$ming]['title']?></a></div>
                         <div class="clearfix date">
@@ -305,7 +305,7 @@ $mingjia = returnClassinfo(32, 6);
     <div class="lianghui"><a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>"><?=$mingjia[5]['title']?></a></div>
     <div class="show-col show-icai">
         <a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>">
-        <img style="width:608px;height:271px;" src="<?=($mingjia[5]['titlepic'])?$mingjia[5]['titlepic']:'images/13.png'?>"></a>
+        <img style="width:6.08rem;height:2.71rem;" src="<?=($mingjia[5]['titlepic'])?'http://www.teniunet.com'.$mingjia[5]['titlepic']:'images/13.png'?>"></a>
         <div class="head-r">独家</div>
     </div>
     <div class="clearfix left-b1">

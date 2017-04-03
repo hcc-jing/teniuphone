@@ -71,7 +71,7 @@ function say()
 	$sayip   = egetip(); //ip地址
 	$uname   = $_COOKIE['uname'];
 	$time    = time();
-	$url     = 'http://www.niuniu.net/phone/newsdetail.php?mid=' . $id;
+	$url     = 'http://www.teniunet.com/phone/newsdetail.php?mid=' . $id;
 	
 	$timecha = time() - $_SESSION['saytime'];
 	$saytext = smile_replace($saytext);

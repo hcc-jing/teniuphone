@@ -33,7 +33,7 @@ $xia = $lian[8] - $lian[10];
 $percent = sprintf("%.2f",($xia/$lian[10])*100);
 $xia = sprintf("%.2f",$xia);
 // echo '<pre>';
-// print_r($lianurl);exit;
+// print_r($_COOKIE);exit;
 ?>
 <!--二级菜单导航-->
 <div class="nav-down-list">
@@ -55,7 +55,7 @@ $xia = sprintf("%.2f",$xia);
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <a href="newsdetail.php?mid=<?=$isgood[0]['id']?>">
-            <img src="<?=$isgood[0]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[0]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -69,7 +69,7 @@ $xia = sprintf("%.2f",$xia);
         ?>
         <div class="item">
             <a href="newsdetail.php?mid=<?=$isgood[$i]['id']?>">
-            <img src="<?=$isgood[$i]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[$i]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -110,6 +110,7 @@ $xia = sprintf("%.2f",$xia);
     </div>
 </div>
 <!--多空调查-->
+<script src="js/jquery-1.4.4.min.js"></script>
 <div class="news-list list-hj">
     <div class="clearfix">
         <div class="pull-left list-tt">多空调查</div>
@@ -118,25 +119,29 @@ $xia = sprintf("%.2f",$xia);
         <div class="goole-tc">
             <span>看多</span>
             <div class="progress vote-line">
-                <div class="progress-bar progress-bar-success progress-c1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                    <!-- <span class="sr-only vote-line-value" id="present_601_1">40% Complete (success)</span> -->
-                    <div class="vote-line-value sr-only" id="present_601_1" style="width: 51.5%;"></div>
+                <div id="present_601_1" class="progress-bar progress-bar-success progress-c1" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                    <div class="vote-line-value sr-only"></div>
                 </div>
             </div>
             <a class="vote-1" href="javascript:;" onclick="voteit(601,1908,0);">投票</a>
-            <div class="progress-number result" id="val_601_1">51.56%</div>
+            <div class="progress-number result" id="val_601_1"></div>
         </div>
         <div class="goole-tc2">
             <span>看空</span>
             <div class="progress vote-line">
-                <div class="progress-bar progress-bar-success progress-c2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
-                    <!-- <span class="sr-only">40% Complete (success)</span> -->
-                    <div class="vote-line-value sr-only" id="present_601_2" style="width: 48.5%;"></div>
+                <div id="present_601_2" class="progress-bar progress-bar-success progress-c2" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                    <div class="vote-line-value sr-only"></div>
                 </div>
             </div>
             <a class="vote-2" href="javascript:;" onclick="voteit(601,1909,1);">投票</a>
-            <div class="progress-number result" id="val_601_2">48.44%</div>
+            <div class="progress-number result" id="val_601_2"></div>
         </div>
+            <div style="display: none;">
+                <form name="voto_form_1" id="voto_form_1" method="post" action="" target="formTarget">
+                    <input name="voteoption" id="radio_value" value="1">
+                    </form>
+                <iframe id="formTarget" name="formTarget" border="0" height="2" width="2"></iframe>
+            </div>
     </div>
 </div>
 <!--外盘换算-->
@@ -161,7 +166,7 @@ $xia = sprintf("%.2f",$xia);
         </li>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[0]['titlepic'])?$neican[0]['titlepic']:'images/09.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[0]['titlepic'])?'http://www.teniunet.com'.$neican[0]['titlepic']:'images/09.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[0]['id']?>"><?=$neican[0]['title']?></a></div>
                         <div class="news-icon"><?=($neican[0]['plnum'])?></div>
@@ -170,7 +175,7 @@ $xia = sprintf("%.2f",$xia);
         </li>
         <li>
             <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[1]['titlepic'])?$neican[1]['titlepic']:'images/09.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[1]['titlepic'])?'http://www.teniunet.com'.$neican[1]['titlepic']:'images/09.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[1]['id']?>"><?=$neican[1]['title']?></a></div>
                         <div class="news-icon"><?=($neican[1]['plnum'])?></div>
@@ -181,7 +186,7 @@ $xia = sprintf("%.2f",$xia);
                 <div class="clearfix welfare-1">
                     <div class="lianghui"><a href="newsdetail.php?mid=<?=$neican[2]['id']?>"><?=$neican[2]['title']?></a></div>
                     <div class="show-col show-icai">
-                        <img style="width:608px;height:218px;" src="<?=($neican[2]['titlepic'])?$neican[2]['titlepic']:'images/14.png'?>">
+                        <img style="width:6.08rem;height:2.18rem;" src="<?=($neican[2]['titlepic'])?'http://www.teniunet.com'.$neican[2]['titlepic']:'images/14.png'?>">
                         <div class="head-r">独家</div>
                     </div>
                     <div class="clearfix left-b1">
@@ -205,7 +210,7 @@ $xia = sprintf("%.2f",$xia);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($neican[$nei]['titlepic'])?'http://www.teniunet.com'.$neican[$nei]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><?=$neican[$nei]['title']?></a></div>
                         <div class="clearfix date">
@@ -226,11 +231,11 @@ $xia = sprintf("%.2f",$xia);
         <div class="col-xs-4 col-xs-4-f">
             <div class="head-r">独家</div>
             <a href="newsdetail.php?mid=<?=$neican[8]['id']?>">
-                <img style="width:197px;height:123px;" src="<?=($neican[8]['titlepic'])?$neican[8]['titlepic']:'images/bao1.jpg'?>">
+                <img style="width:1.97rem;height:1.23rem;" src="<?=($neican[8]['titlepic'])?'http://www.teniunet.com'.$neican[8]['titlepic']:'images/bao1.jpg'?>">
             </a>
         </div>
-        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[9]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[9]['titlepic'])?$neican[9]['titlepic']:'images/bao2.jpg'?>"></a></div>
-        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[10]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[10]['titlepic'])?$neican[10]['titlepic']:'images/bao3.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[9]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[9]['titlepic'])?'http://www.teniunet.com'.$neican[9]['titlepic']:'images/bao2.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[10]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($neican[10]['titlepic'])?'http://www.teniunet.com'.$neican[10]['titlepic']:'images/bao3.jpg'?>"></a></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left guoji"><?=getClassname($neican[8]['classid'])?></div>
@@ -251,7 +256,7 @@ $xia = sprintf("%.2f",$xia);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($ticai[$ti]['titlepic'])?$ticai[$ti]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($ticai[$ti]['titlepic'])?'http://www.teniunet.com'.$ticai[$ti]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><?=$ticai[$ti]['title']?></a></div>
                         <div class="clearfix date">
@@ -272,11 +277,11 @@ $xia = sprintf("%.2f",$xia);
         <div class="col-xs-4 col-xs-4-f">
             <div class="head-r">独家</div>
             <a href="newsdetail.php?mid=<?=$ticai[5]['id']?>">
-                <img style="width:197px;height:123px;" src="<?=($ticai[5]['titlepic'])?$ticai[5]['titlepic']:'images/bao1.jpg'?>">
+                <img style="width:1.97rem;height:1.23rem;" src="<?=($ticai[5]['titlepic'])?'http://www.teniunet.com'.$ticai[5]['titlepic']:'images/bao1.jpg'?>">
             </a>
         </div>
-        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[6]['titlepic'])?$ticai[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
-        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[7]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[7]['titlepic'])?$ticai[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[6]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($ticai[6]['titlepic'])?'http://www.teniunet.com'.$ticai[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[7]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($ticai[7]['titlepic'])?'http://www.teniunet.com'.$ticai[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left guoji"><?=getClassname($ticai[5]['classid'])?></div>
@@ -297,7 +302,7 @@ $xia = sprintf("%.2f",$xia);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($zhuli[$zhu]['titlepic'])?$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($zhuli[$zhu]['titlepic'])?'http://www.teniunet.com'.$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><?=$zhuli[$zhu]['title']?></a></div>
                         <div class="clearfix date">
@@ -318,11 +323,11 @@ $xia = sprintf("%.2f",$xia);
         <div class="col-xs-4 col-xs-4-f">
             <div class="head-r">独家</div>
             <a href="newsdetail.php?mid=<?=$zhuli[5]['id']?>">
-                <img style="width:197px;height:123px;" src="<?=($zhuli[5]['titlepic'])?$zhuli[5]['titlepic']:'images/bao1.jpg'?>">
+                <img style="width:1.97rem;height:1.23rem;" src="<?=($zhuli[5]['titlepic'])?'http://www.teniunet.com'.$zhuli[5]['titlepic']:'images/bao1.jpg'?>">
             </a>
         </div>
-        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[6]['titlepic'])?$zhuli[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
-        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[7]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[7]['titlepic'])?$zhuli[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[6]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($zhuli[6]['titlepic'])?'http://www.teniunet.com'.$zhuli[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[7]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($zhuli[7]['titlepic'])?'http://www.teniunet.com'.$zhuli[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left guoji"><?=getClassname($zhuli[5]['classid'])?></div>
@@ -343,7 +348,7 @@ $xia = sprintf("%.2f",$xia);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($mingjia[$ming]['titlepic'])?$mingjia[$ming]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($mingjia[$ming]['titlepic'])?'http://www.teniunet.com'.$mingjia[$ming]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$mingjia[$ming]['id']?>"><?=$mingjia[$ming]['title']?></a></div>
                         <div class="clearfix date">
@@ -364,11 +369,11 @@ $xia = sprintf("%.2f",$xia);
         <div class="col-xs-4 col-xs-4-f">
             <div class="head-r">独家</div>
             <a href="newsdetail.php?mid=<?=$mingjia[5]['id']?>">
-                <img style="width:197px;height:123px;" src="<?=($mingjia[5]['titlepic'])?$mingjia[5]['titlepic']:'images/bao1.jpg'?>">
+                <img style="width:1.97rem;height:1.23rem;" src="<?=($mingjia[5]['titlepic'])?'http://www.teniunet.com'.$mingjia[5]['titlepic']:'images/bao1.jpg'?>">
             </a>
         </div>
-        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$mingjia[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($mingjia[6]['titlepic'])?$mingjia[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
-        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$mingjia[7]['id']?>"><img style="width:197px;height:123px;" src="<?=($mingjia[7]['titlepic'])?$mingjia[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$mingjia[6]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($mingjia[6]['titlepic'])?'http://www.teniunet.com'.$mingjia[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$mingjia[7]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($mingjia[7]['titlepic'])?'http://www.teniunet.com'.$mingjia[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left guoji"><?=getClassname($mingjia[5]['classid'])?></div>
@@ -389,7 +394,7 @@ $xia = sprintf("%.2f",$xia);
     ?>
         <li>
                 <div class="clearfix">
-                    <div class="pull-left news-img"><img style="width:140px;height:110px;" src="<?=($gongsi[$gong]['titlepic'])?$gongsi[$gong]['titlepic']:'images/08.jpg'?>"></div>
+                    <div class="pull-left news-img"><img style="width:1.4rem;height:1.1rem;" src="<?=($gongsi[$gong]['titlepic'])?'http://www.teniunet.com'.$gongsi[$gong]['titlepic']:'images/08.jpg'?>"></div>
                     <div class="news-list-txt">
                         <div class="news-tt"><a href="newsdetail.php?mid=<?=$gongsi[$gong]['id']?>"><?=$gongsi[$gong]['title']?></a></div>
                         <div class="clearfix date">
@@ -410,11 +415,11 @@ $xia = sprintf("%.2f",$xia);
         <div class="col-xs-4 col-xs-4-f">
             <div class="head-r">独家</div>
             <a href="newsdetail.php?mid=<?=$gongsi[5]['id']?>">
-                <img style="width:197px;height:123px;" src="<?=($gongsi[5]['titlepic'])?$gongsi[5]['titlepic']:'images/bao1.jpg'?>">
+                <img style="width:1.97rem;height:1.23rem;" src="<?=($gongsi[5]['titlepic'])?'http://www.teniunet.com'.$gongsi[5]['titlepic']:'images/bao1.jpg'?>">
             </a>
         </div>
-        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$gongsi[6]['id']?>"><img style="width:197px;height:123px;" src="<?=($gongsi[6]['titlepic'])?$gongsi[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
-        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$gongsi[7]['id']?>"><img style="width:197px;height:123px;" src="<?=($gongsi[7]['titlepic'])?$gongsi[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$gongsi[6]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($gongsi[6]['titlepic'])?'http://www.teniunet.com'.$gongsi[6]['titlepic']:'images/bao2.jpg'?>"></a></div>
+        <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$gongsi[7]['id']?>"><img style="width:1.97rem;height:1.23rem;" src="<?=($gongsi[7]['titlepic'])?'http://www.teniunet.com'.$gongsi[7]['titlepic']:'images/bao3.jpg'?>"></a></div>
     </div>
     <div class="clearfix left-b1">
         <div class="pull-left guoji"><?=getClassname($gongsi[5]['classid'])?></div>
@@ -425,3 +430,7 @@ $xia = sprintf("%.2f",$xia);
 
 <!--保险-->
 <?php include 'foot.php'; ?>
+
+<script type="text/javascript">
+    initVote();
+</script>

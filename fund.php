@@ -38,7 +38,7 @@ $zhuli   = returnClassinfo(18, 8);
     <div class="carousel-inner" role="listbox">
         <div class="item active">
             <a href="newsdetail.php?mid=<?=$isgood[1]['id']?>">
-            <img src="<?=$isgood[1]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[1]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -52,7 +52,7 @@ $zhuli   = returnClassinfo(18, 8);
         ?>
         <div class="item">
             <a href="newsdetail.php?mid=<?=$isgood[$i]['id']?>">
-            <img src="<?=$isgood[$i]['titlepic']?>" style="width:640px;height:324px" alt="..."></a>
+            <img src="http://www.teniunet.com<?=$isgood[$i]['titlepic']?>" style="width:6.4rem;height:3.24rem" alt="..."></a>
             <div class="carousel-caption">
                 <div class="clearfix">
                     <div class="pull-left news-img-ttss">
@@ -93,7 +93,7 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="title-jj"><a href="newsdetail.php?mid=<?=$neican[0]['id']?>"><?=$neican[0]['title']?></a></div>
                     <div class="show-col show-icai">
                     <a href="newsdetail.php?mid=<?=$neican[0]['id']?>">
-                       <img style="width:608px;height:210px;" src="<?=($neican[0]['titlepic'])?$neican[0]['titlepic']:'images/15.jpg'?>">
+                       <img src="<?=($neican[0]['titlepic'])?'http://www.teniunet.com'.$neican[0]['titlepic']:'images/15.jpg'?>">
                     </a>
                         <div class="head-r">独家</div>
                         <div class="news-img-ttss"><?=$neican[0]['title']?></div>
@@ -111,11 +111,11 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="show-col">
                         <div class="col-xs-4 col-xs-4-f">
                         <a href="newsdetail.php?mid=<?=$neican[1]['id']?>">
-                            <img style="width:197px;height:123px;" src="<?=($neican[1]['titlepic'])?$neican[1]['titlepic']:'images/bao1.jpg'?>">
+                            <img src="<?=($neican[1]['titlepic'])?'http://www.teniunet.com'.$neican[1]['titlepic']:'images/bao1.jpg'?>">
                         </a>
                         </div>
-                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[2]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[2]['titlepic'])?$neican[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[3]['id']?>"><img style="width:197px;height:123px;" src="<?=($neican[3]['titlepic'])?$neican[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$neican[2]['id']?>"><img src="<?=($neican[2]['titlepic'])?'http://www.teniunet.com'.$neican[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$neican[3]['id']?>"><img src="<?=($neican[3]['titlepic'])?'http://www.teniunet.com'.$neican[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
                     </div>
                     <div class="clearfix left-b1">
                         <div class="pull-left house"><?=getRelease($neican[1]['newstime'])?></div>
@@ -135,7 +135,7 @@ $zhuli   = returnClassinfo(18, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img style="width:140px;height:110px;" src="<?=($neican[$nei]['titlepic'])?$neican[$nei]['titlepic']:'images/08.jpg'?>"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><img src="<?=($neican[$nei]['titlepic'])?'http://www.teniunet.com'.$neican[$nei]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$neican[$nei]['id']?>"><?=$neican[$nei]['title']?></a></div>
                     <div class="clearfix date">
@@ -158,7 +158,7 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="title-jj"><a href="newsdetail.php?mid=<?=$ticai[0]['id']?>"><?=$ticai[0]['title']?></a></div>
                     <div class="show-col show-icai">
                     <a href="newsdetail.php?mid=<?=$ticai[0]['id']?>">
-                       <img style="width:608px;height:210px;" src="<?=($ticai[0]['titlepic'])?$ticai[0]['titlepic']:'images/15.jpg'?>">
+                       <img src="<?=($ticai[0]['titlepic'])?'http://www.teniunet.com'.$ticai[0]['titlepic']:'images/15.jpg'?>">
                     </a>
                         <div class="head-r">独家</div>
                         <div class="news-img-ttss"><?=$ticai[0]['title']?></div>
@@ -176,11 +176,11 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="show-col">
                         <div class="col-xs-4 col-xs-4-f">
                         <a href="newsdetail.php?mid=<?=$ticai[1]['id']?>">
-                            <img style="width:197px;height:123px;" src="<?=($ticai[1]['titlepic'])?$ticai[1]['titlepic']:'images/bao1.jpg'?>">
+                            <img src="<?=($ticai[1]['titlepic'])?'http://www.teniunet.com'.$ticai[1]['titlepic']:'images/bao1.jpg'?>">
                         </a>
                         </div>
-                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[2]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[2]['titlepic'])?$ticai[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[3]['id']?>"><img style="width:197px;height:123px;" src="<?=($ticai[3]['titlepic'])?$ticai[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$ticai[2]['id']?>"><img src="<?=($ticai[2]['titlepic'])?'http://www.teniunet.com'.$ticai[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$ticai[3]['id']?>"><img src="<?=($ticai[3]['titlepic'])?'http://www.teniunet.com'.$ticai[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
                     </div>
                     <div class="clearfix left-b1">
                         <div class="pull-left house"><?=getRelease($ticai[1]['newstime'])?></div>
@@ -200,7 +200,7 @@ $zhuli   = returnClassinfo(18, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img style="width:140px;height:110px;" src="<?=($ticai[$ti]['titlepic'])?$ticai[$ti]['titlepic']:'images/08.jpg'?>"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><img src="<?=($ticai[$ti]['titlepic'])?'http://www.teniunet.com'.$ticai[$ti]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$ticai[$ti]['id']?>"><?=$ticai[$ti]['title']?></a></div>
                     <div class="clearfix date">
@@ -223,7 +223,7 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="title-jj"><a href="newsdetail.php?mid=<?=$zhuli[0]['id']?>"><?=$zhuli[0]['title']?></a></div>
                     <div class="show-col show-icai">
                     <a href="newsdetail.php?mid=<?=$zhuli[0]['id']?>">
-                       <img style="width:608px;height:210px;" src="<?=($zhuli[0]['titlepic'])?$zhuli[0]['titlepic']:'images/15.jpg'?>">
+                       <img src="<?=($zhuli[0]['titlepic'])?'http://www.teniunet.com'.$zhuli[0]['titlepic']:'images/15.jpg'?>">
                     </a>
                         <div class="head-r">独家</div>
                         <div class="news-img-ttss"><?=$zhuli[0]['title']?></div>
@@ -241,11 +241,11 @@ $zhuli   = returnClassinfo(18, 8);
                     <div class="show-col">
                         <div class="col-xs-4 col-xs-4-f">
                         <a href="newsdetail.php?mid=<?=$zhuli[1]['id']?>">
-                            <img style="width:197px;height:123px;" src="<?=($zhuli[1]['titlepic'])?$zhuli[1]['titlepic']:'images/bao1.jpg'?>">
+                            <img src="<?=($zhuli[1]['titlepic'])?'http://www.teniunet.com'.$zhuli[1]['titlepic']:'images/bao1.jpg'?>">
                         </a>
                         </div>
-                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[2]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[2]['titlepic'])?$zhuli[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
-                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[3]['id']?>"><img style="width:197px;height:123px;" src="<?=($zhuli[3]['titlepic'])?$zhuli[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
+                        <div class="col-xs-4 col-xs-4-m"><a href="newsdetail.php?mid=<?=$zhuli[2]['id']?>"><img src="<?=($zhuli[2]['titlepic'])?'http://www.teniunet.com'.$zhuli[2]['titlepic']:'images/bao2.jpg'?>"></a></div>
+                    <div class="col-xs-4 col-xs-4-l"><a href="newsdetail.php?mid=<?=$zhuli[3]['id']?>"><img src="<?=($zhuli[3]['titlepic'])?'http://www.teniunet.com'.$zhuli[3]['titlepic']:'images/bao3.jpg'?>"></a></div>
                     </div>
                     <div class="clearfix left-b1">
                         <div class="pull-left house"><?=getRelease($zhuli[1]['newstime'])?></div>
@@ -265,7 +265,7 @@ $zhuli   = returnClassinfo(18, 8);
         ?>
         <li>
             <div class="clearfix">
-                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img style="width:140px;height:110px;" src="<?=($zhuli[$zhu]['titlepic'])?$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></a></div>
+                <div class="pull-left news-img"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><img src="<?=($zhuli[$zhu]['titlepic'])?'http://www.teniunet.com'.$zhuli[$zhu]['titlepic']:'images/08.jpg'?>"></a></div>
                 <div class="news-list-txt">
                     <div class="news-tt"><a href="newsdetail.php?mid=<?=$zhuli[$zhu]['id']?>"><?=$zhuli[$zhu]['title']?></a></div>
                     <div class="clearfix date">
